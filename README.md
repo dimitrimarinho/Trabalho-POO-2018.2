@@ -28,7 +28,7 @@ c. Na apresentação os alunos devem mostrar as funcionalidades e os conceitos a
 
 d. A apresentação deve durar no máximo 15 minutos (funcionalidade e código)
 
-e. Ë recomendável trazer um roteiro de demonstração das funcionalidades e locais do código para aproveitar o máximo o tempo disponível.
+e. É recomendável trazer um roteiro de demonstração das funcionalidades e locais do código para aproveitar o máximo o tempo disponível.
 
 ## 6. Material para ser entregue no dia da apresentação em um documento impresso.
 
