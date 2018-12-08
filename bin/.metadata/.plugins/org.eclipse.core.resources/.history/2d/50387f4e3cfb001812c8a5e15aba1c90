@@ -1,0 +1,10 @@
+package geekStore;
+
+public class Livros extends Titulos {
+
+	private String autor;
+	private int numeroEdicao; 
+	
+	
+	
+}

@@ -1,0 +1,14 @@
+package geekStore;
+
+public class Quadrinho extends Titulos {
+
+	private String nacionalidade, personagemPrincipal;
+	private boolean sagaFinalizada;
+	
+	
+	
+	
+	
+	
+	
+}
