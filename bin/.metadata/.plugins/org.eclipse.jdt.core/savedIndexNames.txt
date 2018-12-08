@@ -1,3 +1,0 @@
-INDEX VERSION 1.131+/home/dimitri/GitHub/Trabalho-POO-2018.2/bin/.metadata/.plugins/org.eclipse.jdt.core
-1676463451.index
-1175494123.index

@@ -1,8 +1,0 @@
-package geekStore;
-
-public abstract class Titulos extends Produto {
-
-	private String categoria, editora, ISBN, materialCapa, idioma;
-	private double peso;
-	private int anoLancamento, paginas;
-}
