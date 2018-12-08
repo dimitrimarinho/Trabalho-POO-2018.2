@@ -1,0 +1,17 @@
+#BlueJ class context
+comment0.target=CartaoCredito
+comment1.params=nome\ id\ ativo\ bandeira\ taxaRetencao\ prazoPagamento
+comment1.target=CartaoCredito(java.lang.String,\ int,\ boolean,\ java.lang.String,\ double,\ int)
+comment2.params=
+comment2.target=java.lang.String\ getBandeira()
+comment3.params=bandeira
+comment3.target=void\ setBandeira(java.lang.String)
+comment4.params=
+comment4.target=double\ getTaxaRetencao()
+comment5.params=taxaRetencao
+comment5.target=void\ setTaxaRetencao(double)
+comment6.params=
+comment6.target=int\ getPrazoPagamento()
+comment7.params=prazoPagamento
+comment7.target=void\ setPrazoPagamento(int)
+numComments=8

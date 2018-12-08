@@ -1,0 +1,17 @@
+#BlueJ class context
+comment0.target=FormaPagamento
+comment1.params=nome\ id\ ativo
+comment1.target=FormaPagamento(java.lang.String,\ int,\ boolean)
+comment2.params=
+comment2.target=java.lang.String\ getNome()
+comment3.params=nome
+comment3.target=void\ setNome(java.lang.String)
+comment4.params=
+comment4.target=int\ getId()
+comment5.params=id
+comment5.target=void\ setId(int)
+comment6.params=
+comment6.target=boolean\ isAtivo()
+comment7.params=ativo
+comment7.target=void\ setAtivo(boolean)
+numComments=8
