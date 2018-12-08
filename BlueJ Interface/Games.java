@@ -1,5 +1,3 @@
- 
-
 public class Games extends Produto {
 
 	private String categoria, plataforma, desenvolvedora, dataLancamento, idioma, legenda, resolucao, adicional;

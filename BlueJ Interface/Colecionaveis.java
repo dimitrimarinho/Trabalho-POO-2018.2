@@ -1,5 +1,3 @@
- 
-
 public class Colecionaveis extends Produto {
 
 	private String categoria, dimensoes, conteudoCaixa, material, marca;

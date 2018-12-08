@@ -1,5 +1,3 @@
- 
-
 public class PessoaJuridica extends Cliente {
 
 	private String CNPJ;

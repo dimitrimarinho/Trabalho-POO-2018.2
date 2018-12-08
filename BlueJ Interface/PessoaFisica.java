@@ -1,5 +1,3 @@
- 
-
 public class PessoaFisica extends Cliente {
 
 	private String CPF, RG, dataNascimento;
@@ -12,7 +10,7 @@ public class PessoaFisica extends Cliente {
 		this.RG = RG;
 		this.dataNascimento = dataNascimento;
 	}
-	
+
 	public String getCPF() {
 		return CPF;
 	}
@@ -36,5 +34,5 @@ public class PessoaFisica extends Cliente {
 	public void setDataNascimento(String dataNascimento) {
 		this.dataNascimento = dataNascimento;
 	}
-	
+
 }

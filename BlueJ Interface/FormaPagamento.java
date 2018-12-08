@@ -1,5 +1,3 @@
- 
-
 public abstract class FormaPagamento {
 
 		private String nome;

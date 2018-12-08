@@ -1,5 +1,3 @@
- 
-
 public class BoletoBancario extends FormaPagamento {
 
 	private String Banco;
@@ -16,5 +14,5 @@ public class BoletoBancario extends FormaPagamento {
 	public void setBanco(String banco) {
 		Banco = banco;
 	}
-	
+
 }

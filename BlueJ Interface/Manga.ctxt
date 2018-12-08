@@ -1,0 +1,17 @@
+#BlueJ class context
+comment0.target=Manga
+comment1.params=nome\ descricao\ preco\ disponibilidade\ categoria\ editora\ iSBN\ materialCapa\ idioma\ peso\ anoLancamento\ paginas\ mangaka\ quantidadePublicada\ sagaFinalizada
+comment1.target=Manga(java.lang.String,\ java.lang.String,\ double,\ boolean,\ java.lang.String,\ java.lang.String,\ java.lang.String,\ java.lang.String,\ java.lang.String,\ double,\ int,\ int,\ java.lang.String,\ int,\ boolean)
+comment2.params=
+comment2.target=java.lang.String\ getMangaka()
+comment3.params=mangaka
+comment3.target=void\ setMangaka(java.lang.String)
+comment4.params=
+comment4.target=int\ getQuantidadePublicada()
+comment5.params=quantidadePublicada
+comment5.target=void\ setQuantidadePublicada(int)
+comment6.params=
+comment6.target=boolean\ isSagaFinalizada()
+comment7.params=sagaFinalizada
+comment7.target=void\ setSagaFinalizada(boolean)
+numComments=8

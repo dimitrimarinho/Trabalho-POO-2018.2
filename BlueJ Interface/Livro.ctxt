@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=Livro
+comment1.params=nome\ descricao\ preco\ disponibilidade\ categoria\ editora\ iSBN\ materialCapa\ idioma\ peso\ anoLancamento\ paginas\ autor\ numeroEdicao
+comment1.target=Livro(java.lang.String,\ java.lang.String,\ double,\ boolean,\ java.lang.String,\ java.lang.String,\ java.lang.String,\ java.lang.String,\ java.lang.String,\ double,\ int,\ int,\ java.lang.String,\ int)
+comment2.params=
+comment2.target=java.lang.String\ getAutor()
+comment3.params=autor
+comment3.target=void\ setAutor(java.lang.String)
+comment4.params=
+comment4.target=int\ getNumeroEdicao()
+comment5.params=numeroEdicao
+comment5.target=void\ setNumeroEdicao(int)
+numComments=6

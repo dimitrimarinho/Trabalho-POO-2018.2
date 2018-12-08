@@ -1,7 +1,5 @@
- 
-
 public class Acessorios extends Produto {
-	
+
 	private String categoria, material, dimensoes;
 	// Quais atributos colocar em acessórios ?
 
@@ -36,5 +34,5 @@ public class Acessorios extends Produto {
 	public void setDimensoes(String dimensoes) {
 		this.dimensoes = dimensoes;
 	}
-	
+
 }

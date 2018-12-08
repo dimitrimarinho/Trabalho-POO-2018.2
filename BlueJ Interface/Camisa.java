@@ -1,11 +1,9 @@
- 
-
 public class Camisa extends Produto {
-	
+
 	private String modelo, material, cor, fornecedor, ilustrador;
 	private char tamanho;
 	// Quais outros atributos colocar para Camisetas ?
-	
+
 	public Camisa(String nome, String descricao, double preco, boolean disponibilidade, String modelo,
 			String material, String cor, String fornecedor, String ilustrador, char tamanho) {
 		super(nome, descricao, preco, disponibilidade);
@@ -64,5 +62,5 @@ public class Camisa extends Produto {
 	public void setTamanho(char tamanho) {
 		this.tamanho = tamanho;
 	}
-	
+
 }
