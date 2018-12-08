@@ -1,6 +1,6 @@
 package geekStore;
 
-public class Manga extends Titulos {
+public class Manga extends Titulo {
 	
 	private String mangaka;
 	private int quantidadePublicada;

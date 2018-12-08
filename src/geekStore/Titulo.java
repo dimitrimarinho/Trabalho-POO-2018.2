@@ -1,12 +1,12 @@
 package geekStore;
 
-public abstract class Titulos extends Produto {
+public abstract class Titulo extends Produto {
 
 	private String categoria, editora, ISBN, materialCapa, idioma;
 	private double peso;
 	private int anoLancamento, paginas;
 	
-	public Titulos(String nome, String descricao, double preco, boolean disponibilidade, String categoria,
+	public Titulo(String nome, String descricao, double preco, boolean disponibilidade, String categoria,
 			String editora, String iSBN, String materialCapa, String idioma, double peso, int anoLancamento,
 			int paginas) {
 		super(nome, descricao, preco, disponibilidade);

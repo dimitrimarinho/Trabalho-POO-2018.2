@@ -1,6 +1,6 @@
 package geekStore;
 
-public class Quadrinho extends Titulos {
+public class Quadrinho extends Titulo {
 
 	private String nacionalidade, personagemPrincipal;
 	private boolean sagaFinalizada;

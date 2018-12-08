@@ -1,11 +1,11 @@
 package geekStore;
 
-public class Livros extends Titulos {
+public class Livro extends Titulo {
 
 	private String autor;
 	private int numeroEdicao;
 	
-	public Livros(String nome, String descricao, double preco, boolean disponibilidade, String categoria,
+	public Livro(String nome, String descricao, double preco, boolean disponibilidade, String categoria,
 			String editora, String iSBN, String materialCapa, String idioma, double peso, int anoLancamento,
 			int paginas, String autor, int numeroEdicao) {
 		super(nome, descricao, preco, disponibilidade, categoria, editora, iSBN, materialCapa, idioma, peso,
