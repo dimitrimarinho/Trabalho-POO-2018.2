@@ -2,12 +2,10 @@ package geekStore;
 
 public class Camisa extends Produto {
 	
-	private String modelo, material, cor, fornecedor, ilustrador;
-	private char tamanho;
-	// Quais outros atributos colocar para Camisetas ?
-	
+	private String modelo, material, cor, fornecedor, ilustrador, tamanho;
+
 	public Camisa(String nome, String descricao, double preco, boolean disponibilidade, String modelo,
-			String material, String cor, String fornecedor, String ilustrador, char tamanho) {
+			String material, String cor, String fornecedor, String ilustrador, String tamanho) {
 		super(nome, descricao, preco, disponibilidade);
 		this.modelo = modelo;
 		this.material = material;
@@ -57,11 +55,11 @@ public class Camisa extends Produto {
 		this.ilustrador = ilustrador;
 	}
 
-	public char getTamanho() {
+	public String getTamanho() {
 		return tamanho;
 	}
 
-	public void setTamanho(char tamanho) {
+	public void setTamanho(String tamanho) {
 		this.tamanho = tamanho;
 	}
 	

@@ -1,9 +1,8 @@
-package geekStore;
+package financeiroLoja;
 
 public class PessoaFisica extends Cliente {
 
 	private String CPF, RG, dataNascimento;
-	// Quais outros atributos colocar para Pessoa Física ?
 
 	public PessoaFisica(String nome, String email, String endereco, String telefone, String CPF, String RG,
 			String dataNascimento) {

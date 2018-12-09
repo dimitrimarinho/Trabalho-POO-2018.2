@@ -4,7 +4,6 @@ public class Colecionaveis extends Produto {
 
 	private String categoria, dimensoes, conteudoCaixa, material, marca;
 	private double peso;
-	// Quais atributos colocar em colecionáveis ?
 	
 	public Colecionaveis(String nome, String descricao, String categoria, double preco, boolean disponibilidade,
 			String categoriaColecionavel, String dimensoes, String conteudoCaixa, String material, String marca,

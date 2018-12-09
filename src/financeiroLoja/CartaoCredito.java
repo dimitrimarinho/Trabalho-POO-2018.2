@@ -1,12 +1,10 @@
-package geekStore;
+package financeiroLoja;
 
 public class CartaoCredito extends FormaPagamento {
 
 	private String bandeira;
 	private double taxaRetencao;
 	private int prazoPagamento;
-	// Quais outros atributos colocar para FormaPagamento ?
-
 	
 	public CartaoCredito(String nome, int id, boolean ativo, String bandeira, double taxaRetencao, int prazoPagamento) {
 		super(nome, id, ativo);

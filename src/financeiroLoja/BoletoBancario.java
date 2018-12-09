@@ -1,4 +1,4 @@
-package geekStore;
+package financeiroLoja;
 
 public class BoletoBancario extends FormaPagamento {
 

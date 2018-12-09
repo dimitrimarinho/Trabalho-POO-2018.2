@@ -1,14 +1,12 @@
-package geekStore;
+package financeiroLoja;
 
 public abstract class FormaPagamento {
 
 		private String nome;
 		private int id;
 		private boolean ativo;
-		// Quais outros atributos colocar para FormaPagamento ?
 		
 		public FormaPagamento(String nome, int id, boolean ativo) {
-			super();
 			this.nome = nome;
 			this.id = id;
 			this.ativo = ativo;

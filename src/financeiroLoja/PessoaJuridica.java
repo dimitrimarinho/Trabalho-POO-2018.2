@@ -1,9 +1,8 @@
-package geekStore;
+package financeiroLoja;
 
 public class PessoaJuridica extends Cliente {
 
 	private String CNPJ;
-	// Quais outros atributos colocar para Pessoa Jurídica ?
 
 	public PessoaJuridica(String nome, String email, String endereco, String telefone, String CNPJ) {
 		super(nome, email, endereco, telefone);

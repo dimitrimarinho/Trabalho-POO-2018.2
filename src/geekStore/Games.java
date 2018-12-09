@@ -4,7 +4,6 @@ public class Games extends Produto {
 
 	private String categoria, plataforma, desenvolvedora, dataLancamento, idioma, legenda, resolucao, adicional;
 	private int idadeRecomendada;
-	// Quais outros atributos colocar para Games ?
 	
 	public Games(String nome, String descricao, double preco, boolean disponibilidade, String categoria,
 			String plataforma, String desenvolvedora, String dataLancamento, String idioma, String legenda,

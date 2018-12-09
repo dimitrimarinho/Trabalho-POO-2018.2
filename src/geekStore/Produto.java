@@ -5,7 +5,6 @@ public abstract class Produto {
 	private String nome, descricao;
 	private double preco;
 	private boolean disponibilidade;
-	// Quais outros atributos colocar para Produto ?
 	
 	public Produto(String nome, String descricao, double preco, boolean disponibilidade) {
 		this.nome = nome;

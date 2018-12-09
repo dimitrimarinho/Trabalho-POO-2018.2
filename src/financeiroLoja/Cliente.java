@@ -1,12 +1,10 @@
-package geekStore;
+package financeiroLoja;
 
 public abstract class Cliente {
 
 	private String nome, email, endereco, telefone;
-	// Quais outros atributos acrescentar para a classe Cliente ?
 
 	public Cliente(String nome, String email, String endereco, String telefone) {
-		super();
 		this.nome = nome;
 		this.email = email;
 		this.endereco = endereco;

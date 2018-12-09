@@ -3,7 +3,6 @@ package geekStore;
 public abstract class Acessorio extends Produto {
 	
 	private String categoria, material, dimensoes;
-	// Quais atributos colocar em acessórios ?
 
 	public Acessorio(String nome, String descricao, double preco, boolean disponibilidade, String categoria,
 			String material, String dimensoes) {
