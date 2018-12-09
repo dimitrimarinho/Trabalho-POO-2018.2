@@ -1,0 +1,7 @@
+doc/*
+/bin/
+/src/.gitignore
+*.classpath
+*.project
+*.class
+*.ctxt
