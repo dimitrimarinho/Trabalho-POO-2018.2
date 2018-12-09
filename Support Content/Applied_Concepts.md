@@ -2,6 +2,8 @@
 
 -> Produto
 
+-> Acessorio
+
 -> Titulo
 
 -> Cliente
