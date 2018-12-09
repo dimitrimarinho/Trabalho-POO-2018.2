@@ -1,9 +1,0 @@
-#BlueJ class context
-comment0.target=PessoaJuridica
-comment1.params=nome\ email\ endereco\ telefone\ CNPJ
-comment1.target=PessoaJuridica(java.lang.String,\ java.lang.String,\ java.lang.String,\ java.lang.String,\ java.lang.String)
-comment2.params=
-comment2.target=java.lang.String\ getCNPJ()
-comment3.params=CNPJ
-comment3.target=void\ setCNPJ(java.lang.String)
-numComments=4
