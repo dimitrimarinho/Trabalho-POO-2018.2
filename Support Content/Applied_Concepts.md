@@ -26,4 +26,8 @@
 
 ## Pacote
 
+-> geekStore
+
+-> financeiroLoja
+
 ## Interface
