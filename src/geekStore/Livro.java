@@ -14,11 +14,23 @@ public class Livro extends Titulo {
 		this.numeroEdicao = numeroEdicao;
 	}
 	
+	// Implementar mÃ©todo adicionarItem da interface alterarCarrinho
+	@Override
+	public void adicionarItem(Produto livro) {
+			
+	}
+	
+	// Implementar mÃ©todo removerItem da interface alterarCarrinho
+	@Override
+	public boolean removerItem(Produto livro) {
+		// TODO Auto-generated method stub
+		return false;
+	}	
 	
 	@Override
 	public String toString() {
 		return("Titulo: "+super.getNome()
-		+"\nDescrição: "+super.getDescricao()
+		+"\nDescriï¿½ï¿½o: "+super.getDescricao()
 		+"\nPreco: "+super.getPreco()
 		+"\nDisponibilidade: "+super.isDisponibilidade()
 		+"\nUnidades: "+super.getUnidadesDisponiveis()

@@ -20,8 +20,16 @@ public class Quadrinho extends Titulo {
 	}
 	
 	// Implementar método adicionarItem da interface alterarCarrinho
+	@Override
 	public void adicionarItem(Produto quadrinho) {
 		
+	}
+	
+	// Implementar método removerItem da interface alterarCarrinho
+	@Override
+	public boolean removerItem(Produto quadrinho) {
+		// TODO Auto-generated method stub
+		return false;
 	}	
 	
 	@Override

@@ -20,9 +20,17 @@ public class Manga extends Titulo {
 	}
 	
 	// Implementar método adicionarItem da interface alterarCarrinho
+	@Override
 	public void adicionarItem(Produto manga) {
 				
 	}
+	
+	// Implementar método removerItem da interface alterarCarrinho
+	@Override
+	public boolean removerItem(Produto manga) {
+		// TODO Auto-generated method stub
+		return false;
+	}	
 	
 	@Override
 	public String toString() {

@@ -16,8 +16,16 @@ public class Camisa extends Produto {
 	}
 	
 	// Implementar método adicionarItem da interface alterarCarrinho
+	@Override
 	public void adicionarItem(Produto camisa) {
 			
+	}
+	
+	// Implementar método removerItem da interface alterarCarrinho
+	@Override
+	public boolean removerItem(Produto camisa) {
+		// TODO Auto-generated method stub
+		return false;
 	}	
 	
 	@Override

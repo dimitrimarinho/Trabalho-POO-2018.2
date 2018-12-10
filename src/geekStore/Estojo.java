@@ -18,8 +18,16 @@ public class Estojo extends Acessorio {
 	}
 	
 	// Implementar método adicionarItem da interface alterarCarrinho
+	@Override
 	public void adicionarItem(Produto estojo) {
 			
+	}
+	
+	// Implementar método removerItem da interface alterarCarrinho
+	@Override
+	public boolean removerItem(Produto estojo) {
+		// TODO Auto-generated method stub
+		return false;
 	}	
 	
 	@Override

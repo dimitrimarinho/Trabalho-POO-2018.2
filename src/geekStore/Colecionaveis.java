@@ -19,8 +19,16 @@ public class Colecionaveis extends Produto {
 	}
 	
 	// Implementar método adicionarItem da interface alterarCarrinho
+	@Override
 	public void adicionarItem(Produto colecionaveis) {
 			
+	}
+	
+	// Implementar método removerItem da interface alterarCarrinho
+	@Override
+	public boolean removerItem(Produto colecionaveis) {
+		// TODO Auto-generated method stub
+		return false;
 	}	
 	
 	@Override

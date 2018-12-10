@@ -1,6 +1,6 @@
 package geekStore;
 
-public abstract class Produto {
+public abstract class Produto implements alterarCarrinho {
 
 	private String nome, descricao;
 	private double preco;
@@ -18,8 +18,6 @@ public abstract class Produto {
 	@Override
 	public abstract String toString();
 	
-		
-
 	public String getNome() {
 		return nome;
 	}

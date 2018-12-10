@@ -19,12 +19,11 @@ public abstract class Titulo extends Produto {
 		this.anoLancamento = anoLancamento;
 		this.paginas = paginas;
 	}
-	
-	
+		
 	@Override
 	public String toString() {
 		return("Titulo: "+super.getNome()
-		+"\nDescrição: "+super.getDescricao()
+		+"\nDescriï¿½ï¿½o: "+super.getDescricao()
 		+"\nPreco: "+super.getPreco()
 		+"\nDisponibilidade: "+super.isDisponibilidade()
 		+"\nUnidades: "+super.getUnidadesDisponiveis()

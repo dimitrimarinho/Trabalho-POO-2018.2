@@ -24,8 +24,16 @@ public class Games extends Produto {
 	}
 	
 	// Implementar método adicionarItem da interface alterarCarrinho
+	@Override
 	public void adicionarItem(Produto games) {
 			
+	}
+	
+	// Implementar método removerItem da interface alterarCarrinho
+	@Override
+	public boolean removerItem(Produto games) {
+		// TODO Auto-generated method stub
+		return false;
 	}	
 		
 	@Override

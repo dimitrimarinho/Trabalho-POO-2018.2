@@ -13,8 +13,16 @@ public class Botton extends Acessorio {
 	}
 	
 	// Implementar método adicionarItem da interface alterarCarrinho
+	@Override
 	public void adicionarItem(Produto botton) {
 			
+	}
+	
+	// Implementar método removerItem da interface alterarCarrinho
+	@Override
+	public boolean removerItem(Produto botton) {
+		// TODO Auto-generated method stub
+		return false;
 	}	
 		
 	@Override
@@ -45,6 +53,6 @@ public class Botton extends Acessorio {
 
 	public void setFornecedor(String fornecedor) {
 		this.fornecedor = fornecedor;
-	}	
+	}
 	
 }
