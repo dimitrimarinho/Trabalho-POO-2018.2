@@ -3,7 +3,7 @@ package teste;
 import geekStore.*;
 import cadastroProdutos.*;
 
-public class teste {
+public class Teste {
 	
 	private static Camisa ca;
 	private static Colecionaveis co;

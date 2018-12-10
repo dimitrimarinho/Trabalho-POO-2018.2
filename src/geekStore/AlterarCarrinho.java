@@ -1,6 +1,6 @@
 package geekStore;
 
-public interface alterarCarrinho {
+public interface AlterarCarrinho {
 
 		public void adicionarItem(Produto p);
 		public boolean removerItem (Produto p);
