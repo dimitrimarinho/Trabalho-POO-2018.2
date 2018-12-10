@@ -1,14 +1,14 @@
 ## Classe Abstrata
 
--> Produto
+-> Produto (geekStore package)
 
--> Acessorio
+-> Acessorio (geekStore package)
 
--> Titulo
+-> Titulo (geekStore package)
 
--> Cliente
+-> Cliente (financeiroLoja package)
 
--> FormaPagamento
+-> FormaPagamento (financeiroLoja package)
 
 ## Sobrecarga
 
@@ -17,6 +17,12 @@
 ## Composição
 
 ## Herança
+
+-> Camisa, Acessorio, Colecionaveis, Games, Titulo herdam de Produto (geekStore package)
+
+-> Botton, Estojo herdam de Acessorio (geekStore package)
+
+-> Livro, Manga, Quadrinho herdam de Titulo (geekStore package)
 
 ## Polimorfismo
 
@@ -32,4 +38,10 @@
 
 -> financeiroLoja
 
+-> cadastroProdutos
+
+-> teste
+
 ## Interface
+
+-> AlterarCarrinho (geekStore package)
