@@ -6,11 +6,11 @@ public class Manga extends Titulo {
 	private int quantidadePublicada;
 	private boolean sagaFinalizada;
 	
-	public Manga(String nome, String descricao, double preco, boolean disponibilidade, int unidadesDisponiveis, String categoria,
+	public Manga(String id, String nome, String descricao, double preco, boolean disponibilidade, int unidadesDisponiveis, String categoria,
 			String editora, String iSBN, String materialCapa, String idioma, double peso, int anoLancamento, int paginas,
 			String mangaka, String personagemPrincipal, String ilustrador, int quantidadePublicada, boolean sagaFinalizada) {
 		
-		super(nome, descricao, preco, disponibilidade, unidadesDisponiveis, categoria, editora, iSBN, materialCapa, idioma, peso,
+		super(id, nome, descricao, preco, disponibilidade, unidadesDisponiveis, categoria, editora, iSBN, materialCapa, idioma, peso,
 				anoLancamento, paginas);
 		this.mangaka = mangaka;
 		this.quantidadePublicada = quantidadePublicada;
@@ -19,17 +19,17 @@ public class Manga extends Titulo {
 		this.personagemPrincipal = personagemPrincipal;
 	}
 	
-	// Implementar método adicionarItem da interface alterarCarrinho
 	@Override
 	public void adicionarItem(Produto manga) {
-				
+		if(manga.isDisponibilidade() == true)
+			CarrinhoCompra.adicionarProduto(manga);
+		else 
+			System.out.println("Não há estoque do produto solicitado");				
 	}
 	
-	// Implementar método removerItem da interface alterarCarrinho
 	@Override
 	public boolean removerItem(Produto manga) {
-		// TODO Auto-generated method stub
-		return false;
+		return CarrinhoCompra.removerProduto(manga);
 	}	
 	
 	@Override

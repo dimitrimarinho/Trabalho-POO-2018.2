@@ -4,25 +4,25 @@ public class Botton extends Acessorio {
 
 	private String franquia, fornecedor;
 
-	public Botton(String nome, String descricao, double preco, boolean disponibilidade, int unidadesDisponiveis, 
+	public Botton(String id, String nome, String descricao, double preco, boolean disponibilidade, int unidadesDisponiveis, 
 			String categoria, String material, String dimensoes, String franquia, String fornecedor) {
 		
-		super(nome, descricao, preco, disponibilidade, unidadesDisponiveis, categoria, material, dimensoes);
+		super(id, nome, descricao, preco, disponibilidade, unidadesDisponiveis, categoria, material, dimensoes);
 		this.franquia = franquia;
 		this.fornecedor = fornecedor;
 	}
 	
-	// Implementar método adicionarItem da interface alterarCarrinho
 	@Override
 	public void adicionarItem(Produto botton) {
-			
+		if(botton.isDisponibilidade() == true)
+			CarrinhoCompra.adicionarProduto(botton);
+		else 
+			System.out.println("Não há estoque do produto solicitado");
 	}
 	
-	// Implementar método removerItem da interface alterarCarrinho
 	@Override
 	public boolean removerItem(Produto botton) {
-		// TODO Auto-generated method stub
-		return false;
+		return CarrinhoCompra.removerProduto(botton);
 	}	
 		
 	@Override

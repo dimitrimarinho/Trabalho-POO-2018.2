@@ -4,27 +4,27 @@ public class Livro extends Titulo {
 
 	private String autor, numeroEdicao;
 	
-	public Livro(String nome, String descricao, double preco, boolean disponibilidade, int unidadesDisponiveis,
+	public Livro(String id, String nome, String descricao, double preco, boolean disponibilidade, int unidadesDisponiveis,
 			String categoria, String editora, String iSBN, String materialCapa, String idioma, double peso, 
 			int anoLancamento, int paginas, String autor, String numeroEdicao) {
 		
-		super(nome, descricao, preco, disponibilidade, unidadesDisponiveis, categoria, editora, iSBN, materialCapa,
+		super(id, nome, descricao, preco, disponibilidade, unidadesDisponiveis, categoria, editora, iSBN, materialCapa,
 				idioma, peso, anoLancamento, paginas);
 		this.autor = autor;
 		this.numeroEdicao = numeroEdicao;
 	}
 	
-	// Implementar método adicionarItem da interface alterarCarrinho
 	@Override
 	public void adicionarItem(Produto livro) {
-			
+		if(livro.isDisponibilidade() == true)
+			CarrinhoCompra.adicionarProduto(livro);
+		else 
+			System.out.println("Não há estoque do produto solicitado");
 	}
 	
-	// Implementar método removerItem da interface alterarCarrinho
 	@Override
 	public boolean removerItem(Produto livro) {
-		// TODO Auto-generated method stub
-		return false;
+		return CarrinhoCompra.removerProduto(livro);
 	}	
 	
 	@Override

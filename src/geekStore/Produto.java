@@ -2,12 +2,13 @@ package geekStore;
 
 public abstract class Produto implements alterarCarrinho {
 
-	private String nome, descricao;
+	private String id, nome, descricao;
 	private double preco;
 	private boolean disponibilidade;
 	private int unidadesDisponiveis;
 	
-	public Produto(String nome, String descricao, double preco, boolean disponibilidade, int unidadesDisponiveis) {
+	public Produto(String id, String nome, String descricao, double preco, boolean disponibilidade, int unidadesDisponiveis) {
+		this.id = id;
 		this.nome = nome;
 		this.descricao = descricao;
 		this.preco = preco;
@@ -18,6 +19,14 @@ public abstract class Produto implements alterarCarrinho {
 	@Override
 	public abstract String toString();
 	
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
 	public String getNome() {
 		return nome;
 	}

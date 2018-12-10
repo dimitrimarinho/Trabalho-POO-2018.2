@@ -4,9 +4,9 @@ public abstract class Acessorio extends Produto {
 	
 	private String categoria, material, dimensoes;
 
-	public Acessorio(String nome, String descricao, double preco, boolean disponibilidade, int unidadesDisponiveis, String categoria,
+	public Acessorio(String id, String nome, String descricao, double preco, boolean disponibilidade, int unidadesDisponiveis, String categoria,
 			String material, String dimensoes) {
-		super(nome, descricao, preco, disponibilidade, unidadesDisponiveis);
+		super(id, nome, descricao, preco, disponibilidade, unidadesDisponiveis);
 		this.categoria = categoria;
 		this.material = material;
 		this.dimensoes = dimensoes;

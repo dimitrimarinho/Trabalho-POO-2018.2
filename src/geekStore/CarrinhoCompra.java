@@ -1,21 +1,39 @@
 package geekStore;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class CarrinhoCompra {
 
 	private static ArrayList<Produto> carrinhoCompra;
 	private static double valorParcial, valorCompra;
-	private boolean compraFinalizada;
+	private static boolean compraFinalizada;
 	
 	public CarrinhoCompra() {
 		carrinhoCompra = new ArrayList<Produto>();
 		CarrinhoCompra.valorParcial = 0;
 		CarrinhoCompra.valorCompra = 0;
-		this.compraFinalizada = false;
+		CarrinhoCompra.setCompraFinalizada(false);
+	}
+	
+	public static void adicionarProduto(Produto p) {
+		carrinhoCompra.add(p);
+	}
+	
+	public static boolean removerProduto(Produto p) {
+		boolean isRemovido = false;
+		for (Iterator<Produto> it = carrinhoCompra.iterator(); it.hasNext();) {
+			Produto search = (Produto) it.next();
+			if((search.getId()).equals(p.getId())){
+				carrinhoCompra.remove(p);
+				isRemovido = true;
+				break;
+			}			
+		}
+		return isRemovido;
 	}
 
-	public void finalizarCompra() {
+	public static void finalizarCompra() {
 		setCompraFinalizada(true);
 		CarrinhoCompra.valorCompra = valorParcial;
 	}
@@ -28,28 +46,28 @@ public class CarrinhoCompra {
 		CarrinhoCompra.carrinhoCompra = carrinhoCompra;
 	}
 
-	public double getValorParcial() {
+	public static double getValorParcial() {
 		return valorParcial;
 	}
 
-	public void setValorParcial(double valorParcial) {
+	public static void setValorParcial(double valorParcial) {
 		CarrinhoCompra.valorParcial = valorParcial;
 	}
 
-	public double getValorCompra() {
+	public static double getValorCompra() {
 		return valorCompra;
 	}
 
-	public void setValorCompra(double valorCompra) {
+	public static void setValorCompra(double valorCompra) {
 		CarrinhoCompra.valorCompra = valorCompra;
 	}
 
-	public boolean isCompraFinalizada() {
+	public static boolean isCompraFinalizada() {
 		return compraFinalizada;
 	}
 
-	public void setCompraFinalizada(boolean compraFinalizada) {
-		this.compraFinalizada = compraFinalizada;
+	public static void setCompraFinalizada(boolean compraFinalizada) {
+		CarrinhoCompra.compraFinalizada = compraFinalizada;
 	}
 	
 }

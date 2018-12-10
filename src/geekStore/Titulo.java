@@ -6,10 +6,10 @@ public abstract class Titulo extends Produto {
 	private double peso;
 	private int anoLancamento, paginas;
 	
-	public Titulo(String nome, String descricao, double preco, boolean disponibilidade, int unidadesDisponiveis,
+	public Titulo(String id, String nome, String descricao, double preco, boolean disponibilidade, int unidadesDisponiveis,
 			String categoria, String editora, String iSBN, String materialCapa, String idioma, double peso, 
 			int anoLancamento, int paginas) {
-		super(nome, descricao, preco, disponibilidade, unidadesDisponiveis);
+		super(id, nome, descricao, preco, disponibilidade, unidadesDisponiveis);
 		this.categoria = categoria;
 		this.editora = editora;
 		ISBN = iSBN;

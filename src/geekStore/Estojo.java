@@ -6,28 +6,28 @@ public class Estojo extends Acessorio {
 	private double profundidade;
 	private String cor, marca;
 		
-	public Estojo(String nome, String descricao, double preco, boolean disponibilidade, int unidadesDisponiveis,
+	public Estojo(String id, String nome, String descricao, double preco, boolean disponibilidade, int unidadesDisponiveis,
 			String categoria, String material, String dimensoes, int numeroCompartimentos, double profundidade, 
 			String cor, String marca) {
 		
-		super(nome, descricao, preco, disponibilidade,unidadesDisponiveis, categoria, material, dimensoes);
+		super(id, nome, descricao, preco, disponibilidade,unidadesDisponiveis, categoria, material, dimensoes);
 		this.numeroCompartimentos = numeroCompartimentos;
 		this.profundidade = profundidade;
 		this.cor = cor;
 		this.marca = marca;
 	}
 	
-	// Implementar método adicionarItem da interface alterarCarrinho
 	@Override
 	public void adicionarItem(Produto estojo) {
-			
+		if(estojo.isDisponibilidade() == true)
+			CarrinhoCompra.adicionarProduto(estojo);
+		else 
+			System.out.println("Não há estoque do produto solicitado");
 	}
 	
-	// Implementar método removerItem da interface alterarCarrinho
 	@Override
 	public boolean removerItem(Produto estojo) {
-		// TODO Auto-generated method stub
-		return false;
+		return CarrinhoCompra.removerProduto(estojo);
 	}	
 	
 	@Override

@@ -5,12 +5,12 @@ public class Quadrinho extends Titulo {
 	private String nacionalidade, personagemPrincipal, ilustrador, licenciador;
 	private boolean sagaFinalizada;
 	
-	public Quadrinho(String nome, String descricao, double preco, boolean disponibilidade, int unidadesDisponiveis,
+	public Quadrinho(String id, String nome, String descricao, double preco, boolean disponibilidade, int unidadesDisponiveis,
 			String categoria, String editora, String iSBN, String materialCapa, String idioma, double peso, 
 			int anoLancamento, int paginas, String nacionalidade, String personagemPrincipal, boolean sagaFinalizada,
 			String ilustrador, String licenciador) {
 		
-		super(nome, descricao, preco, disponibilidade, unidadesDisponiveis, categoria, editora, iSBN, materialCapa, idioma,
+		super(id, nome, descricao, preco, disponibilidade, unidadesDisponiveis, categoria, editora, iSBN, materialCapa, idioma,
 				peso, anoLancamento, paginas);
 		this.nacionalidade = nacionalidade;
 		this.personagemPrincipal = personagemPrincipal;
@@ -19,17 +19,17 @@ public class Quadrinho extends Titulo {
 		this.licenciador = licenciador;
 	}
 	
-	// Implementar método adicionarItem da interface alterarCarrinho
 	@Override
 	public void adicionarItem(Produto quadrinho) {
-		
+		if(quadrinho.isDisponibilidade() == true)
+			CarrinhoCompra.adicionarProduto(quadrinho);
+		else 
+			System.out.println("Não há estoque do produto solicitado");
 	}
 	
-	// Implementar método removerItem da interface alterarCarrinho
 	@Override
 	public boolean removerItem(Produto quadrinho) {
-		// TODO Auto-generated method stub
-		return false;
+		return CarrinhoCompra.removerProduto(quadrinho);
 	}	
 	
 	@Override

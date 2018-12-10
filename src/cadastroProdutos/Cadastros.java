@@ -1,16 +1,18 @@
 package cadastroProdutos;
 
 import geekStore.*;
+
 import javax.swing.JOptionPane;
 
 public class Cadastros {
 	
 	public static Camisa cadastroCamisa() {
-		String nome, descricao, modelo, material, cor, fornecedor, ilustrador, tamanho;
+		String id, nome, descricao, modelo, material, cor, fornecedor, ilustrador, tamanho;
 		double preco;
 		boolean disponibilidade;
 		int unidadesDisponiveis;
 		
+		id = JOptionPane.showInputDialog("Informe o ID da Camisa:");
 		nome  = JOptionPane.showInputDialog("Informe o Nome da Camisa:");
 		descricao = JOptionPane.showInputDialog("Informe a Descricao da Camisa:");
 		preco = Double.parseDouble(JOptionPane.showInputDialog("Informe o Preco da Camisa:"));
@@ -26,23 +28,24 @@ public class Cadastros {
 		fornecedor = JOptionPane.showInputDialog("Informe o Fornecedor da Camisa:");
 		ilustrador = JOptionPane.showInputDialog("Informe o Ilustrador da Camisa:");
 		tamanho = JOptionPane.showInputDialog("Informe o Tamanho da Camisa:");
-		Camisa c = new Camisa(nome,descricao,preco,disponibilidade,unidadesDisponiveis,modelo,material,cor,fornecedor,ilustrador,tamanho);
+		Camisa c = new Camisa(id, nome,descricao,preco,disponibilidade,unidadesDisponiveis,modelo,material,cor,fornecedor,ilustrador,tamanho);
 		
 		return c;
 	}
 		
 	public static Colecionaveis cadastroColecionaveis() {
-		String nome, descricao, categoria, dimensoes, conteudoCaixa, material, marca;
+		String id, nome, descricao, categoria, dimensoes, conteudoCaixa, material, marca;
 		double preco, peso;
 		boolean disponibilidade;
 		int unidadesDisponiveis;
 		
-		nome  = JOptionPane.showInputDialog("Informe o Nome da Colecionavel:");
-		descricao = JOptionPane.showInputDialog("Informe a Descricao da Colecionavel:");
-		preco = Double.parseDouble(JOptionPane.showInputDialog("Informe o Preco da Colecionavel:"));
-		disponibilidade = Boolean.parseBoolean(JOptionPane.showInputDialog("Informe a Disponibilidade da Camisa:"));
+		id  = JOptionPane.showInputDialog("Informe o ID do Colecionavel:");
+		nome  = JOptionPane.showInputDialog("Informe o Nome do Colecionavel:");
+		descricao = JOptionPane.showInputDialog("Informe a Descricao do Colecionavel:");
+		preco = Double.parseDouble(JOptionPane.showInputDialog("Informe o Preco do Colecionavel:"));
+		disponibilidade = Boolean.parseBoolean(JOptionPane.showInputDialog("Informe a Disponibilidade do Colecionavel:"));
 		if(disponibilidade == true)
-			unidadesDisponiveis = Integer.parseInt(JOptionPane.showInputDialog("Informe o Numero de Unidades Disponiveis:"));
+			unidadesDisponiveis = Integer.parseInt(JOptionPane.showInputDialog("Informe o Numero de Unidades Disponivel:"));
 		else
 			unidadesDisponiveis = 0;
 		categoria = JOptionPane.showInputDialog("Informe a Categoria do Colecionavel:");
@@ -51,22 +54,23 @@ public class Cadastros {
 		material = JOptionPane.showInputDialog("Informe o Material do Colecionavel:");
 		marca = JOptionPane.showInputDialog("Informe a Marca do Colecionavel:");
 		peso = Double.parseDouble(JOptionPane.showInputDialog("Informe o Peso do Colecionavel:"));
-		Colecionaveis c = new Colecionaveis(nome,descricao,preco,disponibilidade,unidadesDisponiveis,
+		Colecionaveis c = new Colecionaveis(id, nome,descricao,preco,disponibilidade,unidadesDisponiveis,
 		categoria,dimensoes,conteudoCaixa,material,marca,peso);
 		
 		return c;
 	}
 		
 	public static Livro cadastroLivro() {
-		String nome, descricao, categoria, editora, iSBN, materialCapa, idioma, autor, numeroEdicao;
+		String id, nome, descricao, categoria, editora, iSBN, materialCapa, idioma, autor, numeroEdicao;
 		double preco, peso;
 		int unidadesDisponiveis, anoLancamento, paginas;
 		boolean disponibilidade;
 		
+		id  = JOptionPane.showInputDialog("Informe o ID do Livro:");
 		nome  = JOptionPane.showInputDialog("Informe o Titulo do Livro:");
 		descricao = JOptionPane.showInputDialog("Informe a Descricao do Livro:");
 		preco = Double.parseDouble(JOptionPane.showInputDialog("Informe o Preco do Livro:"));
-		disponibilidade = Boolean.parseBoolean(JOptionPane.showInputDialog("Informe Se a Disponibilidade do Livro:"));
+		disponibilidade = Boolean.parseBoolean(JOptionPane.showInputDialog("Informe a Disponibilidade do Livro:"));
 		if(disponibilidade == true)
 			unidadesDisponiveis = Integer.parseInt(JOptionPane.showInputDialog("Informe o Numero de Unidades Disponiveis:"));
 		else
@@ -82,18 +86,19 @@ public class Cadastros {
 		paginas = Integer.parseInt(JOptionPane.showInputDialog("Informe o Numero de Paginas do Livro:"));
 		autor = JOptionPane.showInputDialog("Informe o Autor(es) do Livro:");
 		numeroEdicao = JOptionPane.showInputDialog("Informe o Numero da Edicao do Livro:");
-		Livro l = new Livro(nome, descricao, preco, disponibilidade, unidadesDisponiveis, categoria, editora,
+		Livro l = new Livro(id, nome, descricao, preco, disponibilidade, unidadesDisponiveis, categoria, editora,
 		iSBN, materialCapa, idioma, peso, anoLancamento, paginas, autor, numeroEdicao);
 		
 		return l;
 	}
 		
 	public static Games cadastroGames() {
-		String nome, descricao, categoria, plataforma, desenvolvedora, dataLancamento, idioma, legenda, resolucao, adicional;
+		String id, nome, descricao, categoria, plataforma, desenvolvedora, dataLancamento, idioma, legenda, resolucao, adicional;
 		double preco;
 		boolean disponibilidade;
 		int unidadesDisponiveis, idadeRecomendada, numeroOnline, numeroOffline;
-				
+		
+		id  = JOptionPane.showInputDialog("Informe o ID do Jogo:");
 		nome  = JOptionPane.showInputDialog("Informe o Nome do Jogo:");
 		descricao = JOptionPane.showInputDialog("Informe a Descricao do Jogo:");
 		preco = Double.parseDouble(JOptionPane.showInputDialog("Informe o Preco do Jogo:"));
@@ -114,7 +119,7 @@ public class Cadastros {
 		idadeRecomendada = Integer.parseInt(JOptionPane.showInputDialog("Informe a Idade Recomendada Para o Jogo:"));
 		numeroOnline = Integer.parseInt(JOptionPane.showInputDialog("Informe o Numero de Jogadores Disponiveis no Modo Online o Jogo:"));
 		numeroOffline = numeroOnline = Integer.parseInt(JOptionPane.showInputDialog("Informe o Numero de Jogadores Disponiveis no Modo Online o Jogo:"));
-		Games g = new Games(nome, descricao, preco, disponibilidade, unidadesDisponiveis, categoria, plataforma,
+		Games g = new Games(id, nome, descricao, preco, disponibilidade, unidadesDisponiveis, categoria, plataforma,
 			desenvolvedora, dataLancamento, idioma, legenda, resolucao, adicional, idadeRecomendada, numeroOnline,
 			numeroOffline);
 		
@@ -122,12 +127,13 @@ public class Cadastros {
 	}
 		
 	public static Quadrinho cadastroQuadrinho() {
-		String nome, descricao, categoria, editora, iSBN, materialCapa, idioma, ilustrador,
+		String id, nome, descricao, categoria, editora, iSBN, materialCapa, idioma, ilustrador,
 		nacionalidade, licenciador, personagemPrincipal;
 		double preco, peso;
 		int unidadesDisponiveis, anoLancamento, paginas;
 		boolean disponibilidade, sagaFinalizada;
 		
+		id  = JOptionPane.showInputDialog("Informe o ID do Quadrinho:");
 		nome  = JOptionPane.showInputDialog("Informe o Titulo do Quadrinho:");
 		descricao = JOptionPane.showInputDialog("Informe a Descricao do Quadrinho:");
 		preco = Double.parseDouble(JOptionPane.showInputDialog("Informe o Preco do Quadrinho:"));
@@ -151,19 +157,20 @@ public class Cadastros {
 		ilustrador = JOptionPane.showInputDialog("Informe o(s) Ilustrador(es) do Quadrinho:");
 		sagaFinalizada = Boolean.parseBoolean(JOptionPane.showInputDialog("A Saga do Quadrinho Est� Finalizada?"));
 		
-		Quadrinho q = new Quadrinho(nome, descricao, preco, disponibilidade, unidadesDisponiveis, categoria, editora,
+		Quadrinho q = new Quadrinho(id, nome, descricao, preco, disponibilidade, unidadesDisponiveis, categoria, editora,
 		iSBN, materialCapa, idioma, peso, anoLancamento, paginas, nacionalidade, personagemPrincipal, sagaFinalizada, ilustrador, licenciador);
 		
 		return q;		
 	}	
 	
 	public static Manga cadastroManga() {
-		String nome, descricao, categoria, editora, iSBN, materialCapa, idioma, mangaka,
+		String id, nome, descricao, categoria, editora, iSBN, materialCapa, idioma, mangaka,
 		personagemPrincipal, ilustrador;
 		double preco, peso;
 		int unidadesDisponiveis, anoLancamento, paginas, quantidadePublicada;
 		boolean disponibilidade, sagaFinalizada;
 		
+		id  = JOptionPane.showInputDialog("Informe o ID do Manga:");
 		nome  = JOptionPane.showInputDialog("Informe o Titulo do Manga:");
 		descricao = JOptionPane.showInputDialog("Informe a Descricao do Manga:");
 		preco = Double.parseDouble(JOptionPane.showInputDialog("Informe o Preco do Manga:"));
@@ -187,7 +194,7 @@ public class Cadastros {
 		quantidadePublicada = Integer.parseInt(JOptionPane.showInputDialog("Informe a Quantidade Publicada do Manga:"));
 		sagaFinalizada = Boolean.parseBoolean(JOptionPane.showInputDialog("A Saga do Manga Est� Finalizada?"));
 		
-		Manga m = new Manga(nome, descricao, preco, disponibilidade, unidadesDisponiveis, categoria,
+		Manga m = new Manga(id, nome, descricao, preco, disponibilidade, unidadesDisponiveis, categoria,
 				 editora, iSBN, materialCapa, idioma, peso, anoLancamento, paginas,
 				 mangaka, personagemPrincipal, ilustrador, quantidadePublicada, sagaFinalizada);
 		
@@ -195,11 +202,12 @@ public class Cadastros {
 	}
 		
 	public static Botton cadastroBotton() {
-		String nome, descricao, categoria, material, dimensoes, fornecedor, franquia;
+		String id, nome, descricao, categoria, material, dimensoes, fornecedor, franquia;
 		double preco;
 		boolean disponibilidade;
 		int unidadesDisponiveis;
 		
+		id = JOptionPane.showInputDialog("Informe o ID do Botton:");
 		nome  = JOptionPane.showInputDialog("Informe o Nome do Botton:");
 		descricao = JOptionPane.showInputDialog("Informe a Descricao do Botton:");
 		preco = Double.parseDouble(JOptionPane.showInputDialog("Informe o Preco do Botton:"));
@@ -213,7 +221,7 @@ public class Cadastros {
 		dimensoes = JOptionPane.showInputDialog("Informe as Dimensoes do Botton:");
 		franquia = JOptionPane.showInputDialog("Informe a Franquia do Botton:");
 		fornecedor = JOptionPane.showInputDialog("Informe o Fornecedor do Botton:");
-		Botton b = new Botton(nome, descricao, preco, disponibilidade, unidadesDisponiveis, categoria,
+		Botton b = new Botton(id, nome, descricao, preco, disponibilidade, unidadesDisponiveis, categoria,
 				material, dimensoes, franquia, fornecedor);
 		
 		return b;
@@ -221,11 +229,12 @@ public class Cadastros {
 	}
 	
 	public static Estojo cadastroEstojo() {
-		String nome, descricao, categoria, material, dimensoes, cor, marca;
+		String id, nome, descricao, categoria, material, dimensoes, cor, marca;
 		double preco, profundidade;
 		boolean disponibilidade;
 		int unidadesDisponiveis, numeroCompartimentos;
 		
+		id  = JOptionPane.showInputDialog("Informe o ID do Estojo:");
 		nome  = JOptionPane.showInputDialog("Informe o Nome do Estojo:");
 		descricao = JOptionPane.showInputDialog("Informe a Descricao do Estojo:");
 		preco = Double.parseDouble(JOptionPane.showInputDialog("Informe o Preco do Estojo:"));
@@ -241,7 +250,7 @@ public class Cadastros {
 		profundidade = Double.parseDouble("Informe a Profundidade do Estojo:");
 		cor = JOptionPane.showInputDialog("Informe a Cor do Estojo:");
 		marca = JOptionPane.showInputDialog("Informe a Marca do Estojo:");
-		Estojo e = new Estojo(nome, descricao, preco, disponibilidade, unidadesDisponiveis, categoria,
+		Estojo e = new Estojo(id, nome, descricao, preco, disponibilidade, unidadesDisponiveis, categoria,
 				material, dimensoes, numeroCompartimentos, profundidade, cor, marca);
 		
 		return e;		

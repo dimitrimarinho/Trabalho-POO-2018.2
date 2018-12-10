@@ -4,9 +4,9 @@ public class Camisa extends Produto {
 	
 	private String modelo, material, cor, fornecedor, ilustrador, tamanho;
 
-	public Camisa(String nome, String descricao, double preco, boolean disponibilidade,int unidadesDisponiveis, String modelo,
+	public Camisa(String id, String nome, String descricao, double preco, boolean disponibilidade,int unidadesDisponiveis, String modelo,
 			String material, String cor, String fornecedor, String ilustrador, String tamanho) {
-		super(nome, descricao, preco, disponibilidade, unidadesDisponiveis);
+		super(id, nome, descricao, preco, disponibilidade, unidadesDisponiveis);
 		this.modelo = modelo;
 		this.material = material;
 		this.cor = cor;
@@ -15,10 +15,12 @@ public class Camisa extends Produto {
 		this.tamanho = tamanho;
 	}
 	
-	// Implementar método adicionarItem da interface alterarCarrinho
 	@Override
 	public void adicionarItem(Produto camisa) {
-			
+		if(camisa.isDisponibilidade() == true)
+			CarrinhoCompra.adicionarProduto(camisa);
+		else 
+			System.out.println("Não há estoque do produto solicitado");		
 	}
 	
 	// Implementar método removerItem da interface alterarCarrinho

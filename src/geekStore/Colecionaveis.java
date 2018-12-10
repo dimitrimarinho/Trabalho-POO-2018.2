@@ -5,11 +5,11 @@ public class Colecionaveis extends Produto {
 	private String categoria, dimensoes, conteudoCaixa, material, marca;
 	private double peso;
 	
-	public Colecionaveis(String nome, String descricao, double preco, boolean disponibilidade,
+	public Colecionaveis(String id, String nome, String descricao, double preco, boolean disponibilidade,
 			int unidadesDisponiveis, String categoria, String dimensoes, String conteudoCaixa, 
 			String material, String marca, double peso) {
 		
-		super(nome, descricao, preco, disponibilidade,unidadesDisponiveis);
+		super(id, nome, descricao, preco, disponibilidade,unidadesDisponiveis);
 		this.categoria = categoria;
 		this.dimensoes = dimensoes;
 		this.conteudoCaixa = conteudoCaixa;
@@ -18,17 +18,17 @@ public class Colecionaveis extends Produto {
 		this.peso = peso;
 	}
 	
-	// Implementar método adicionarItem da interface alterarCarrinho
 	@Override
 	public void adicionarItem(Produto colecionaveis) {
-			
+		if(colecionaveis.isDisponibilidade() == true)
+			CarrinhoCompra.adicionarProduto(colecionaveis);
+		else 
+			System.out.println("Não há estoque do produto solicitado");			
 	}
 	
-	// Implementar método removerItem da interface alterarCarrinho
 	@Override
 	public boolean removerItem(Produto colecionaveis) {
-		// TODO Auto-generated method stub
-		return false;
+		return CarrinhoCompra.removerProduto(colecionaveis);
 	}	
 	
 	@Override

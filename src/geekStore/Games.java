@@ -5,11 +5,11 @@ public class Games extends Produto {
 	private String categoria, plataforma, desenvolvedora, dataLancamento, idioma, legenda, resolucao, adicional;
 	private int idadeRecomendada, numeroOnline, numeroOffline;
 	
-	public Games(String nome, String descricao, double preco, boolean disponibilidade, int unidadesDisponiveis,
+	public Games(String id, String nome, String descricao, double preco, boolean disponibilidade, int unidadesDisponiveis,
 			String categoria,String plataforma, String desenvolvedora, String dataLancamento, String idioma, 
 			String legenda, String resolucao, String adicional, int idadeRecomendada, int numeroOnline, int numeroOffline) {
 		
-		super(nome, descricao, preco, disponibilidade, unidadesDisponiveis);
+		super(id, nome, descricao, preco, disponibilidade, unidadesDisponiveis);
 		this.categoria = categoria;
 		this.plataforma = plataforma;
 		this.desenvolvedora = desenvolvedora;
@@ -23,17 +23,17 @@ public class Games extends Produto {
 		this.numeroOffline = numeroOffline;
 	}
 	
-	// Implementar método adicionarItem da interface alterarCarrinho
 	@Override
 	public void adicionarItem(Produto games) {
-			
+		if(games.isDisponibilidade() == true)
+			CarrinhoCompra.adicionarProduto(games);
+		else 
+			System.out.println("Não há estoque do produto solicitado");			
 	}
 	
-	// Implementar método removerItem da interface alterarCarrinho
 	@Override
 	public boolean removerItem(Produto games) {
-		// TODO Auto-generated method stub
-		return false;
+		return CarrinhoCompra.removerProduto(games);
 	}	
 		
 	@Override
