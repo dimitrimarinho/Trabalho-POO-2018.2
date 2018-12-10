@@ -30,8 +30,7 @@ public class Cadastros {
 		
 		return c;
 	}
-	
-	
+		
 	public static Colecionaveis cadastroColecionaveis() {
 		String nome, descricao, categoria, dimensoes, conteudoCaixa, material, marca;
 		double preco, peso;
@@ -57,9 +56,7 @@ public class Cadastros {
 		
 		return c;
 	}
-	
-	
-	
+		
 	public static Livro cadastroLivro() {
 		String nome, descricao, categoria, editora, iSBN, materialCapa, idioma, autor, numeroEdicao;
 		double preco, peso;
@@ -90,16 +87,13 @@ public class Cadastros {
 		
 		return l;
 	}
-	
-	
+		
 	public static Games cadastroGames() {
 		String nome, descricao, categoria, plataforma, desenvolvedora, dataLancamento, idioma, legenda, resolucao, adicional;
 		double preco;
 		boolean disponibilidade;
 		int unidadesDisponiveis, idadeRecomendada, numeroOnline, numeroOffline;
-		
-		
-		
+				
 		nome  = JOptionPane.showInputDialog("Informe o Nome do Jogo:");
 		descricao = JOptionPane.showInputDialog("Informe a Descricao do Jogo:");
 		preco = Double.parseDouble(JOptionPane.showInputDialog("Informe o Preco do Jogo:"));
@@ -126,8 +120,7 @@ public class Cadastros {
 		
 		return g;
 	}
-	
-	
+		
 	public static Quadrinho cadastroQuadrinho() {
 		String nome, descricao, categoria, editora, iSBN, materialCapa, idioma, ilustrador,
 		nacionalidade, licenciador, personagemPrincipal;
@@ -161,10 +154,8 @@ public class Cadastros {
 		Quadrinho q = new Quadrinho(nome, descricao, preco, disponibilidade, unidadesDisponiveis, categoria, editora,
 		iSBN, materialCapa, idioma, peso, anoLancamento, paginas, nacionalidade, personagemPrincipal, sagaFinalizada, ilustrador, licenciador);
 		
-		return q;
-		
-	}
-	
+		return q;		
+	}	
 	
 	public static Manga cadastroManga() {
 		String nome, descricao, categoria, editora, iSBN, materialCapa, idioma, mangaka,
@@ -202,8 +193,7 @@ public class Cadastros {
 		
 		return m;
 	}
-	
-	
+		
 	public static Botton cadastroBotton() {
 		String nome, descricao, categoria, material, dimensoes, fornecedor, franquia;
 		double preco;
@@ -254,11 +244,7 @@ public class Cadastros {
 		Estojo e = new Estojo(nome, descricao, preco, disponibilidade, unidadesDisponiveis, categoria,
 				material, dimensoes, numeroCompartimentos, profundidade, cor, marca);
 		
-		return e;
-		
-	}
-	
-	
-	
+		return e;		
+	}	
 	
 }
