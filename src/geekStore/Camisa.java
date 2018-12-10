@@ -4,9 +4,9 @@ public class Camisa extends Produto {
 	
 	private String modelo, material, cor, fornecedor, ilustrador, tamanho;
 
-	public Camisa(String nome, String descricao, double preco, boolean disponibilidade, String modelo,
+	public Camisa(String nome, String descricao, double preco, boolean disponibilidade,int unidadesDisponiveis, String modelo,
 			String material, String cor, String fornecedor, String ilustrador, String tamanho) {
-		super(nome, descricao, preco, disponibilidade);
+		super(nome, descricao, preco, disponibilidade, unidadesDisponiveis);
 		this.modelo = modelo;
 		this.material = material;
 		this.cor = cor;
@@ -14,6 +14,28 @@ public class Camisa extends Produto {
 		this.ilustrador = ilustrador;
 		this.tamanho = tamanho;
 	}
+	
+	// Implementar método adicionarItem da interface alterarCarrinho
+	public void adicionarItem(Produto camisa) {
+			
+	}	
+	
+	@Override
+	 public String toString() {
+		return ("Nome: "+super.getNome()
+		+"\nDescri��o: "+super.getDescricao()
+		+"\nPreco: "+super.getPreco()
+		+"\nDisponibilidade: "+super.isDisponibilidade()
+		+"\nUnidades: "+super.getUnidadesDisponiveis()
+		+"\nModelo: "+getModelo()
+		+"\nMaterial: "+getMaterial()
+		+"\nCor: "+getCor()
+		+"\nFornecedor: "+getFornecedor()
+		+"\nIlustrador: "+getIlustrador()
+		+"\nTamanho: "+getTamanho());
+		
+	}
+	
 
 	public String getModelo() {
 		return modelo;

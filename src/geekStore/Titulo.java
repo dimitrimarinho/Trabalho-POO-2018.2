@@ -6,10 +6,10 @@ public abstract class Titulo extends Produto {
 	private double peso;
 	private int anoLancamento, paginas;
 	
-	public Titulo(String nome, String descricao, double preco, boolean disponibilidade, String categoria,
-			String editora, String iSBN, String materialCapa, String idioma, double peso, int anoLancamento,
-			int paginas) {
-		super(nome, descricao, preco, disponibilidade);
+	public Titulo(String nome, String descricao, double preco, boolean disponibilidade, int unidadesDisponiveis,
+			String categoria, String editora, String iSBN, String materialCapa, String idioma, double peso, 
+			int anoLancamento, int paginas) {
+		super(nome, descricao, preco, disponibilidade, unidadesDisponiveis);
 		this.categoria = categoria;
 		this.editora = editora;
 		ISBN = iSBN;
@@ -18,6 +18,24 @@ public abstract class Titulo extends Produto {
 		this.peso = peso;
 		this.anoLancamento = anoLancamento;
 		this.paginas = paginas;
+	}
+	
+	
+	@Override
+	public String toString() {
+		return("Titulo: "+super.getNome()
+		+"\nDescrição: "+super.getDescricao()
+		+"\nPreco: "+super.getPreco()
+		+"\nDisponibilidade: "+super.isDisponibilidade()
+		+"\nUnidades: "+super.getUnidadesDisponiveis()
+		+"\nCategoria: "+getCategoria()
+		+"\nEditora: "+getEditora()
+		+"\nISBN: "+getISBN()
+		+"\nMaterial da Capa: "+getMaterialCapa()
+		+"\nIdioma: "+getIdioma()
+		+"\nPeso: "+getPeso()
+		+"\nAno de Lancamento: "+getAnoLancamento()
+		+"\nNumero de Paginas: "+getPaginas());
 	}
 
 	public String getCategoria() {

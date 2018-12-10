@@ -4,13 +4,16 @@ public abstract class Acessorio extends Produto {
 	
 	private String categoria, material, dimensoes;
 
-	public Acessorio(String nome, String descricao, double preco, boolean disponibilidade, String categoria,
+	public Acessorio(String nome, String descricao, double preco, boolean disponibilidade, int unidadesDisponiveis, String categoria,
 			String material, String dimensoes) {
-		super(nome, descricao, preco, disponibilidade);
+		super(nome, descricao, preco, disponibilidade, unidadesDisponiveis);
 		this.categoria = categoria;
 		this.material = material;
 		this.dimensoes = dimensoes;
 	}
+	
+	@Override
+	public abstract String toString();
 
 	public String getCategoria() {
 		return categoria;

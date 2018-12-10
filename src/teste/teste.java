@@ -1,9 +1,9 @@
-package Teste;
+package teste;
 
 import geekStore.*;
 import cadastroProdutos.*;
 
-public class main {
+public class teste {
 	
 	private static Camisa ca;
 	private static Colecionaveis co;
@@ -14,6 +14,7 @@ public class main {
 	private static Estojo e;
 	private static Botton b;
 	public static void main(String[] args) {
+		
 		ca =  Cadastros.cadastroCamisa();
 		co =  Cadastros.cadastroColecionaveis();
 		g =   Cadastros.cadastroGames();
@@ -37,8 +38,8 @@ public class main {
 		System.out.println();
 		System.out.println(e);
 		System.out.println();
-		System.out.println(b);
-	
+		System.out.println(b);	
 		
 	}
+	
 }

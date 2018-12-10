@@ -1,9 +1,7 @@
 package cadastroProdutos;
 
-import javax.swing.JOptionPane;
-
 import geekStore.*;
-
+import javax.swing.JOptionPane;
 
 public class Cadastros {
 	
@@ -158,7 +156,7 @@ public class Cadastros {
 		nacionalidade = JOptionPane.showInputDialog("Informe a Nacionalidade do Quadrinho:");
 		personagemPrincipal = JOptionPane.showInputDialog("Informe o Personagem Principal do Quadrinho:");
 		ilustrador = JOptionPane.showInputDialog("Informe o(s) Ilustrador(es) do Quadrinho:");
-		sagaFinalizada = Boolean.parseBoolean(JOptionPane.showInputDialog("A Saga do Quadrinho Está Finalizada?"));
+		sagaFinalizada = Boolean.parseBoolean(JOptionPane.showInputDialog("A Saga do Quadrinho Estï¿½ Finalizada?"));
 		
 		Quadrinho q = new Quadrinho(nome, descricao, preco, disponibilidade, unidadesDisponiveis, categoria, editora,
 		iSBN, materialCapa, idioma, peso, anoLancamento, paginas, nacionalidade, personagemPrincipal, sagaFinalizada, ilustrador, licenciador);
@@ -196,7 +194,7 @@ public class Cadastros {
 		personagemPrincipal = JOptionPane.showInputDialog("Informe o Personagem Principal do Manga:");
 		ilustrador = JOptionPane.showInputDialog("Informe o(s) Ilustrador(es) do Manga:");
 		quantidadePublicada = Integer.parseInt(JOptionPane.showInputDialog("Informe a Quantidade Publicada do Manga:"));
-		sagaFinalizada = Boolean.parseBoolean(JOptionPane.showInputDialog("A Saga do Manga Está Finalizada?"));
+		sagaFinalizada = Boolean.parseBoolean(JOptionPane.showInputDialog("A Saga do Manga Estï¿½ Finalizada?"));
 		
 		Manga m = new Manga(nome, descricao, preco, disponibilidade, unidadesDisponiveis, categoria,
 				 editora, iSBN, materialCapa, idioma, peso, anoLancamento, paginas,

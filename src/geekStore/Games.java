@@ -3,12 +3,13 @@ package geekStore;
 public class Games extends Produto {
 
 	private String categoria, plataforma, desenvolvedora, dataLancamento, idioma, legenda, resolucao, adicional;
-	private int idadeRecomendada;
+	private int idadeRecomendada, numeroOnline, numeroOffline;
 	
-	public Games(String nome, String descricao, double preco, boolean disponibilidade, String categoria,
-			String plataforma, String desenvolvedora, String dataLancamento, String idioma, String legenda,
-			String resolucao, String adicional, int idadeRecomendada) {
-		super(nome, descricao, preco, disponibilidade);
+	public Games(String nome, String descricao, double preco, boolean disponibilidade, int unidadesDisponiveis,
+			String categoria,String plataforma, String desenvolvedora, String dataLancamento, String idioma, 
+			String legenda, String resolucao, String adicional, int idadeRecomendada, int numeroOnline, int numeroOffline) {
+		
+		super(nome, descricao, preco, disponibilidade, unidadesDisponiveis);
 		this.categoria = categoria;
 		this.plataforma = plataforma;
 		this.desenvolvedora = desenvolvedora;
@@ -18,6 +19,34 @@ public class Games extends Produto {
 		this.resolucao = resolucao;
 		this.adicional = adicional;
 		this.idadeRecomendada = idadeRecomendada;
+		this.numeroOnline = numeroOnline;
+		this.numeroOffline = numeroOffline;
+	}
+	
+	// Implementar método adicionarItem da interface alterarCarrinho
+	public void adicionarItem(Produto games) {
+			
+	}	
+		
+	@Override
+	public String toString(){
+		return ("Nome: "+super.getNome()
+		+"\nDescri��o: "+super.getDescricao()
+		+"\nPreco: "+super.getPreco()
+		+"\nDisponibilidade: "+super.isDisponibilidade()
+		+"\nUnidades: "+super.getUnidadesDisponiveis()
+		+"\nCategoria: "+getCategoria()
+		+"\nPlataforma: "+getPlataforma()
+		+"\nDesenvolvedora: "+getDesenvolvedora()
+		+"\nData de Lancamento: "+getDataLancamento()
+		+"\nIdioma(s): "+getIdioma()
+		+"\nLegenda(s): "+getLegenda()
+		+"\nResolucao: "+getResolucao()
+		+"\nInclui: "+getAdicional()
+		+"\nIdade Recomendada: "+getIdadeRecomendada()
+		+"N� Jogadores Online: "+getNumeroOnline()
+		+"N� Jogadores Offline: "+getNumeroOffline());
+		
 	}
 
 	public String getCategoria() {
@@ -91,5 +120,27 @@ public class Games extends Produto {
 	public void setIdadeRecomendada(int idadeRecomendada) {
 		this.idadeRecomendada = idadeRecomendada;
 	}
+
+
+	public int getNumeroOnline() {
+		return numeroOnline;
+	}
+
+
+	public void setNumeroOnline(int numeroOnline) {
+		this.numeroOnline = numeroOnline;
+	}
+
+
+	public int getNumeroOffline() {
+		return numeroOffline;
+	}
+
+
+	public void setNumeroOffline(int numeroOffline) {
+		this.numeroOffline = numeroOffline;
+	}
+	
+	
 	
 }

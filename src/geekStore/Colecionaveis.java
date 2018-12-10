@@ -5,10 +5,11 @@ public class Colecionaveis extends Produto {
 	private String categoria, dimensoes, conteudoCaixa, material, marca;
 	private double peso;
 	
-	public Colecionaveis(String nome, String descricao, String categoria, double preco, boolean disponibilidade,
-			String categoriaColecionavel, String dimensoes, String conteudoCaixa, String material, String marca,
-			double peso) {
-		super(nome, descricao, preco, disponibilidade);
+	public Colecionaveis(String nome, String descricao, double preco, boolean disponibilidade,
+			int unidadesDisponiveis, String categoria, String dimensoes, String conteudoCaixa, 
+			String material, String marca, double peso) {
+		
+		super(nome, descricao, preco, disponibilidade,unidadesDisponiveis);
 		this.categoria = categoria;
 		this.dimensoes = dimensoes;
 		this.conteudoCaixa = conteudoCaixa;
@@ -16,12 +17,33 @@ public class Colecionaveis extends Produto {
 		this.marca = marca;
 		this.peso = peso;
 	}
+	
+	// Implementar método adicionarItem da interface alterarCarrinho
+	public void adicionarItem(Produto colecionaveis) {
+			
+	}	
+	
+	@Override
+	public String toString() {
+		return("Nome: "+super.getNome()
+		+"\nDescri��o: "+super.getDescricao()
+		+"\nPreco: "+super.getPreco()
+		+"\nDisponibilidade: "+super.isDisponibilidade()
+		+"\nUnidades: "+super.getUnidadesDisponiveis()
+		+"\nCategoria: "+getCategoria()
+		+"\nDimensoes: "+getDimensoes()
+		+"\nConteudo da Caixa: "+getConteudoCaixa()
+		+"\nMaterial: "+getMaterial()
+		+"\nMarca: "+getMarca()
+		+"\nPeso: "+getPeso());	
+		
+	}
 
 	public String getCategoria() {
 		return categoria;
 	}
 
-	public void setCategoriaColecionavel(String categoria) {
+	public void setCategoria(String categoria) {
 		this.categoria = categoria;
 	}
 

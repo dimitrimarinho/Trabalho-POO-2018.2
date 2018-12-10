@@ -5,13 +5,20 @@ public abstract class Produto {
 	private String nome, descricao;
 	private double preco;
 	private boolean disponibilidade;
+	private int unidadesDisponiveis;
 	
-	public Produto(String nome, String descricao, double preco, boolean disponibilidade) {
+	public Produto(String nome, String descricao, double preco, boolean disponibilidade, int unidadesDisponiveis) {
 		this.nome = nome;
 		this.descricao = descricao;
 		this.preco = preco;
 		this.disponibilidade = disponibilidade;
+		this.unidadesDisponiveis = unidadesDisponiveis;
 	}
+		
+	@Override
+	public abstract String toString();
+	
+		
 
 	public String getNome() {
 		return nome;
@@ -44,5 +51,15 @@ public abstract class Produto {
 	public void setDisponibilidade(boolean disponibilidade) {
 		this.disponibilidade = disponibilidade;
 	}
+
+
+	public int getUnidadesDisponiveis() {
+		return unidadesDisponiveis;
+	}
+
+
+	public void setUnidadesDisponiveis(int unidadesDisponiveis) {
+		this.unidadesDisponiveis = unidadesDisponiveis;
+	}	
 		
 }
