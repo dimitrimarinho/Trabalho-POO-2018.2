@@ -30,13 +30,13 @@ d. A apresentação deve durar no máximo 15 minutos (funcionalidade e código)
 
 e. É recomendável trazer um roteiro de demonstração das funcionalidades e locais do código para aproveitar o máximo o tempo disponível.
 
-## 6. Material para ser entregue no dia da apresentação em um documento impresso.
+## 6. Material para ser entregue no dia da apresentação em um documento impresso
 
 a. O contexto do trabalho de forma escrita e detalhada em no máximo duas páginas.
 
 b. O modelo UML da sua aplicação seguido dos conceitos aplicados e a motivação da aplicação dos mesmos.
 
-## 7. Elementos que serão observados no contexto.
+## 7. Elementos que serão observados no contexto
 
 a. Quantidade e diversidade dos conceitos aplicados
 
