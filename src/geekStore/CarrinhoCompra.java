@@ -18,6 +18,7 @@ public class CarrinhoCompra {
 	
 	public static void adicionarProduto(Produto p) {
 		carrinhoCompra.add(p);
+		incrementaValorParcial(p);
 	}
 	
 	public static boolean removerProduto(Produto p) {
@@ -26,11 +27,20 @@ public class CarrinhoCompra {
 			Produto search = (Produto) it.next();
 			if((search.getId()).equals(p.getId())){
 				carrinhoCompra.remove(p);
+				decrementaValorParcial(p);
 				isRemovido = true;
 				break;
 			}			
 		}
 		return isRemovido;
+	}
+	
+	public static void incrementaValorParcial(Produto p) {
+		setValorParcial(getValorParcial() + p.getPreco());
+	}
+	
+	public static void decrementaValorParcial(Produto p) {
+		setValorParcial(getValorParcial() - p.getPreco());
 	}
 
 	public static void finalizarCompra() {
