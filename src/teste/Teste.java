@@ -1,4 +1,4 @@
-package Teste;
+package teste;
 
 import geekStore.*;
 import cadastroClientes.CadastroClientes;
@@ -18,7 +18,6 @@ public class Teste {
 	private static PessoaJuridica pj;
 	private static CartaoCredito card;
 	private static BoletoBancario bol;
-	
 	
 	public static void main(String[] args) {
 		
