@@ -1,6 +1,8 @@
 package geekStore;
 
-public class Estojo extends Acessorio {
+import javax.swing.JOptionPane;
+
+public class Estojo extends Acessorio implements AlterarCarrinho {
 
 	private int numeroCompartimentos;
 	private double profundidade;
@@ -17,15 +19,15 @@ public class Estojo extends Acessorio {
 		this.marca = marca;
 	}
 	
-	@Override
+	
 	public void adicionarItem(Produto estojo) {
 		if(estojo.isDisponibilidade() == true)
 			CarrinhoCompra.adicionarProduto(estojo);
 		else 
-			System.out.println("Não há estoque do produto solicitado");
+			JOptionPane.showMessageDialog(null, "Nao ha estoque do produto solicitado");
 	}
 	
-	@Override
+	
 	public boolean removerItem(Produto estojo) {
 		return CarrinhoCompra.removerProduto(estojo);
 	}	
@@ -33,7 +35,7 @@ public class Estojo extends Acessorio {
 	@Override
 	public String toString() {
 		return ("Nome: "+super.getNome()
-		+"\nDescri��o: "+super.getDescricao()
+		+"\nDescricao: "+super.getDescricao()
 		+"\nPreco: "+super.getPreco()
 		+"\nDisponibilidade: "+super.isDisponibilidade()
 		+"\nUnidades: "+super.getUnidadesDisponiveis()

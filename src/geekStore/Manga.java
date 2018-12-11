@@ -1,6 +1,8 @@
 package geekStore;
 
-public class Manga extends Titulo {
+import javax.swing.JOptionPane;
+
+public class Manga extends Titulo implements AlterarCarrinho {
 	
 	private String mangaka, personagemPrincipal, ilustrador;
 	private int quantidadePublicada;
@@ -19,15 +21,15 @@ public class Manga extends Titulo {
 		this.personagemPrincipal = personagemPrincipal;
 	}
 	
-	@Override
+	
 	public void adicionarItem(Produto manga) {
 		if(manga.isDisponibilidade() == true)
 			CarrinhoCompra.adicionarProduto(manga);
 		else 
-			System.out.println("Não há estoque do produto solicitado");				
+			JOptionPane.showMessageDialog(null, "Nao ha estoque do produto solicitado");				
 	}
 	
-	@Override
+	
 	public boolean removerItem(Produto manga) {
 		return CarrinhoCompra.removerProduto(manga);
 	}	
@@ -35,7 +37,7 @@ public class Manga extends Titulo {
 	@Override
 	public String toString() {
 		return("Titulo: "+super.getNome()
-		+"\nDescri��o: "+super.getDescricao()
+		+"\nDescricao: "+super.getDescricao()
 		+"\nPreco: "+super.getPreco()
 		+"\nDisponibilidade: "+super.isDisponibilidade()
 		+"\nUnidades: "+super.getUnidadesDisponiveis()

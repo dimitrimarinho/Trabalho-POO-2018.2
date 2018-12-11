@@ -12,6 +12,15 @@ public class PessoaFisica extends Cliente {
 		this.dataNascimento = dataNascimento;
 	}
 	
+	
+	@Override
+	public String toString() {
+		return(super.toString()
+		+"\nCPF: "+getCPF()
+		+"\nRG: "+getRG()
+		+"\nData de Nascimento: "+getDataNascimento());
+	}
+	
 	public String getCPF() {
 		return CPF;
 	}

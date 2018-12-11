@@ -1,6 +1,8 @@
 package geekStore;
 
-public class Botton extends Acessorio {
+import javax.swing.JOptionPane;
+
+public class Botton extends Acessorio implements AlterarCarrinho {
 
 	private String franquia, fornecedor;
 
@@ -12,15 +14,15 @@ public class Botton extends Acessorio {
 		this.fornecedor = fornecedor;
 	}
 	
-	@Override
+	
 	public void adicionarItem(Produto botton) {
 		if(botton.isDisponibilidade() == true)
 			CarrinhoCompra.adicionarProduto(botton);
 		else 
-			System.out.println("Não há estoque do produto solicitado");
+			JOptionPane.showMessageDialog(null, "Nao ha estoque do produto solicitado");
 	}
 	
-	@Override
+	
 	public boolean removerItem(Produto botton) {
 		return CarrinhoCompra.removerProduto(botton);
 	}	
@@ -28,7 +30,7 @@ public class Botton extends Acessorio {
 	@Override
 	public String toString() {
 		return ("Nome: "+super.getNome()
-		+"\nDescri��o: "+super.getDescricao()
+		+"\nDescricao: "+super.getDescricao()
 		+"\nPreco: "+super.getPreco()
 		+"\nDisponibilidade: "+super.isDisponibilidade()
 		+"\nUnidades: "+super.getUnidadesDisponiveis()

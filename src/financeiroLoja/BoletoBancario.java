@@ -4,9 +4,18 @@ public class BoletoBancario extends FormaPagamento {
 
 	private String Banco;
 
-	public BoletoBancario(String nome, int id, boolean ativo, String banco) {
-		super(nome, id, ativo);
-		Banco = banco;
+	public BoletoBancario(int id, String tipo, int prazoPagamento, boolean ativo, String banco) {
+		super(id, tipo, prazoPagamento, ativo);
+		
+		this.Banco = banco;
+		
+	}
+	
+	
+	@Override
+	public String toString() {
+		return(super.toString()+"\nBanco: "+getBanco());
+		
 	}
 
 	public String getBanco() {

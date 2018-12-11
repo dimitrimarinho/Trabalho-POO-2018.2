@@ -1,44 +1,48 @@
-package teste;
+package Teste;
 
 import geekStore.*;
+import cadastroClientes.CadastroClientes;
+import cadastroFormasPagamento.CadastroFormasPagamento;
 import cadastroProdutos.*;
+import exibirProdutos.*;
+import financeiroLoja.*;
+import exibirClientes.*;
+import exibirFormasPagamento.ExibirFormasPagamento;
 
 public class Teste {
 	
-	private static Camisa ca;
+	private static Camisa c;
 	private static Colecionaveis co;
 	private static Games g;
-	private static Livro l;
-	private static Quadrinho q;
-	private static Manga m;
-	private static Estojo e;
-	private static Botton b;
+	private static PessoaFisica pf;
+	private static PessoaJuridica pj;
+	private static CartaoCredito card;
+	private static BoletoBancario bol;
+	
+	
 	public static void main(String[] args) {
 		
-		ca =  Cadastros.cadastroCamisa();
-		co =  Cadastros.cadastroColecionaveis();
-		g =   Cadastros.cadastroGames();
-		l =   Cadastros.cadastroLivro();
-		q =   Cadastros.cadastroQuadrinho();
-		m =   Cadastros.cadastroManga();
-		e =   Cadastros.cadastroEstojo();
-		b =   Cadastros.cadastroBotton();
+		c = CadastroProdutos.cadastroCamisa();
+		ExibirProdutos.exibirProduto(c);
 		
-		System.out.println(ca);
-		System.out.println();
-		System.out.println(co);
-		System.out.println();
-		System.out.println(g);
-		System.out.println();
-		System.out.println(l);
-		System.out.println();
-		System.out.println(q);
-		System.out.println();
-		System.out.println(m);
-		System.out.println();
-		System.out.println(e);
-		System.out.println();
-		System.out.println(b);	
+		co = CadastroProdutos.cadastroColecionaveis();
+		ExibirProdutos.exibirProduto(co);
+		
+		g = CadastroProdutos.cadastroGames();
+		ExibirProdutos.exibirProduto(g);
+		
+		pf = CadastroClientes.cadastrarFisica();
+		ExibirClientes.exibirPessoa(pf);
+		
+		pj = CadastroClientes.cadastroJuridica();
+		ExibirClientes.exibirPessoa(pj);
+		
+		card = CadastroFormasPagamento.cadastroCartao();
+		ExibirFormasPagamento.exibirFormaPagamento(card);
+		
+		bol = CadastroFormasPagamento.cadastroBoleto();
+		ExibirFormasPagamento.exibirFormaPagamento(bol);
+		
 		
 	}
 	

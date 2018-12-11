@@ -1,6 +1,6 @@
 package geekStore;
 
-public abstract class Produto implements AlterarCarrinho {
+public abstract class Produto {
 
 	private String id, nome, descricao;
 	private double preco;

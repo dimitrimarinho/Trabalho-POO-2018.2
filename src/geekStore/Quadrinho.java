@@ -1,6 +1,8 @@
 package geekStore;
 
-public class Quadrinho extends Titulo {
+import javax.swing.JOptionPane;
+
+public class Quadrinho extends Titulo implements AlterarCarrinho {
 
 	private String nacionalidade, personagemPrincipal, ilustrador, licenciador;
 	private boolean sagaFinalizada;
@@ -19,15 +21,15 @@ public class Quadrinho extends Titulo {
 		this.licenciador = licenciador;
 	}
 	
-	@Override
+	
 	public void adicionarItem(Produto quadrinho) {
 		if(quadrinho.isDisponibilidade() == true)
 			CarrinhoCompra.adicionarProduto(quadrinho);
 		else 
-			System.out.println("Não há estoque do produto solicitado");
+			JOptionPane.showMessageDialog(null, "Nao ha estoque do produto solicitado");
 	}
 	
-	@Override
+	
 	public boolean removerItem(Produto quadrinho) {
 		return CarrinhoCompra.removerProduto(quadrinho);
 	}	
@@ -35,7 +37,7 @@ public class Quadrinho extends Titulo {
 	@Override
 	public String toString() {
 		return("Titulo: "+super.getNome()
-		+"\nDescri��o: "+super.getDescricao()
+		+"\nDescricao: "+super.getDescricao()
 		+"\nPreco: "+super.getPreco()
 		+"\nDisponibilidade: "+super.isDisponibilidade()
 		+"\nUnidades: "+super.getUnidadesDisponiveis()
@@ -96,3 +98,4 @@ public class Quadrinho extends Titulo {
 	}
 
 }
+

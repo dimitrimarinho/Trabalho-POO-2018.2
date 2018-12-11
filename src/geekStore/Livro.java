@@ -1,6 +1,8 @@
 package geekStore;
 
-public class Livro extends Titulo {
+import javax.swing.JOptionPane;
+
+public class Livro extends Titulo implements AlterarCarrinho {
 
 	private String autor, numeroEdicao;
 	
@@ -14,15 +16,15 @@ public class Livro extends Titulo {
 		this.numeroEdicao = numeroEdicao;
 	}
 	
-	@Override
+	
 	public void adicionarItem(Produto livro) {
 		if(livro.isDisponibilidade() == true)
 			CarrinhoCompra.adicionarProduto(livro);
 		else 
-			System.out.println("Não há estoque do produto solicitado");
+			JOptionPane.showMessageDialog(null, "Nao ha estoque do produto solicitado");
 	}
 	
-	@Override
+	
 	public boolean removerItem(Produto livro) {
 		return CarrinhoCompra.removerProduto(livro);
 	}	
@@ -30,7 +32,7 @@ public class Livro extends Titulo {
 	@Override
 	public String toString() {
 		return("Titulo: "+super.getNome()
-		+"\nDescri��o: "+super.getDescricao()
+		+"\nDescricao: "+super.getDescricao()
 		+"\nPreco: "+super.getPreco()
 		+"\nDisponibilidade: "+super.isDisponibilidade()
 		+"\nUnidades: "+super.getUnidadesDisponiveis()

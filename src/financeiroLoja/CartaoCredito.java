@@ -2,24 +2,25 @@ package financeiroLoja;
 
 public class CartaoCredito extends FormaPagamento {
 
-	private String bandeira;
 	private double taxaRetencao;
-	private int prazoPagamento;
+	private String bandeira;
 	
-	public CartaoCredito(String nome, int id, boolean ativo, String bandeira, double taxaRetencao, int prazoPagamento) {
-		super(nome, id, ativo);
+	public CartaoCredito (int id, String tipo, int prazoPagamento, boolean ativo, String bandeira, double taxaRetencao) {
+		super(id, tipo, prazoPagamento, ativo );
+		
 		this.bandeira = bandeira;
 		this.taxaRetencao = taxaRetencao;
-		this.prazoPagamento = prazoPagamento;
+
 	}
 	
-	public String getBandeira() {
-		return bandeira;
+	
+	@Override
+	public String toString() {
+		return(super.toString()
+		+"\nBandeira: "+getBandeira()
+		+"\nTaxa de Retencao: "+getTaxaRetencao());
 	}
 	
-	public void setBandeira(String bandeira) {
-		this.bandeira = bandeira;
-	}
 	
 	public double getTaxaRetencao() {
 		return taxaRetencao;
@@ -29,12 +30,15 @@ public class CartaoCredito extends FormaPagamento {
 		this.taxaRetencao = taxaRetencao;
 	}
 
-	public int getPrazoPagamento() {
-		return prazoPagamento;
+
+	public String getBandeira() {
+		return bandeira;
 	}
 
-	public void setPrazoPagamento(int prazoPagamento) {
-		this.prazoPagamento = prazoPagamento;
-	}	
+
+	public void setBandeira(String bandeira) {
+		this.bandeira = bandeira;
+	}
+
 	
 }

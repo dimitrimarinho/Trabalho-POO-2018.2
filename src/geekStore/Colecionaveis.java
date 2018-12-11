@@ -1,6 +1,8 @@
 package geekStore;
 
-public class Colecionaveis extends Produto {
+import javax.swing.JOptionPane;
+
+public class Colecionaveis extends Produto implements AlterarCarrinho {
 
 	private String categoria, dimensoes, conteudoCaixa, material, marca;
 	private double peso;
@@ -18,15 +20,15 @@ public class Colecionaveis extends Produto {
 		this.peso = peso;
 	}
 	
-	@Override
+	
 	public void adicionarItem(Produto colecionaveis) {
 		if(colecionaveis.isDisponibilidade() == true)
 			CarrinhoCompra.adicionarProduto(colecionaveis);
 		else 
-			System.out.println("Não há estoque do produto solicitado");			
+			JOptionPane.showMessageDialog(null, "Nao ha estoque do produto solicitado");			
 	}
 	
-	@Override
+	
 	public boolean removerItem(Produto colecionaveis) {
 		return CarrinhoCompra.removerProduto(colecionaveis);
 	}	
@@ -34,7 +36,7 @@ public class Colecionaveis extends Produto {
 	@Override
 	public String toString() {
 		return("Nome: "+super.getNome()
-		+"\nDescri��o: "+super.getDescricao()
+		+"\nDescricao: "+super.getDescricao()
 		+"\nPreco: "+super.getPreco()
 		+"\nDisponibilidade: "+super.isDisponibilidade()
 		+"\nUnidades: "+super.getUnidadesDisponiveis()

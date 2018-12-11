@@ -10,6 +10,16 @@ public abstract class Cliente {
 		this.endereco = endereco;
 		this.telefone = telefone;
 	}
+	
+	@Override
+	public String toString() {
+		return("Nome: "+getNome()
+		+"\nEmail: "+getEmail()
+		+"\nEndereco: "+getEndereco()
+		+"\nTelefone: "+getTelefone());
+				
+		
+	}
 
 	public String getNome() {
 		return nome;

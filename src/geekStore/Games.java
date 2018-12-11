@@ -1,6 +1,8 @@
 package geekStore;
 
-public class Games extends Produto {
+import javax.swing.JOptionPane;
+
+public class Games extends Produto implements AlterarCarrinho {
 
 	private String categoria, plataforma, desenvolvedora, dataLancamento, idioma, legenda, resolucao, adicional;
 	private int idadeRecomendada, numeroOnline, numeroOffline;
@@ -23,15 +25,15 @@ public class Games extends Produto {
 		this.numeroOffline = numeroOffline;
 	}
 	
-	@Override
+	
 	public void adicionarItem(Produto games) {
 		if(games.isDisponibilidade() == true)
 			CarrinhoCompra.adicionarProduto(games);
 		else 
-			System.out.println("NÃ£o hÃ¡ estoque do produto solicitado");			
+			JOptionPane.showMessageDialog(null, "Nao ha estoque do produto solicitado");			
 	}
 	
-	@Override
+	
 	public boolean removerItem(Produto games) {
 		return CarrinhoCompra.removerProduto(games);
 	}	
@@ -39,7 +41,7 @@ public class Games extends Produto {
 	@Override
 	public String toString(){
 		return ("Nome: "+super.getNome()
-		+"\nDescriï¿½ï¿½o: "+super.getDescricao()
+		+"\nDescricao: "+super.getDescricao()
 		+"\nPreco: "+super.getPreco()
 		+"\nDisponibilidade: "+super.isDisponibilidade()
 		+"\nUnidades: "+super.getUnidadesDisponiveis()
@@ -52,8 +54,8 @@ public class Games extends Produto {
 		+"\nResolucao: "+getResolucao()
 		+"\nInclui: "+getAdicional()
 		+"\nIdade Recomendada: "+getIdadeRecomendada()
-		+"Nï¿½ Jogadores Online: "+getNumeroOnline()
-		+"Nï¿½ Jogadores Offline: "+getNumeroOffline());
+		+"N° Jogadores Online: "+getNumeroOnline()
+		+"N° Jogadores Offline: "+getNumeroOffline());
 		
 	}
 

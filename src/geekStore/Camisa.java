@@ -1,6 +1,8 @@
 package geekStore;
 
-public class Camisa extends Produto {
+import javax.swing.JOptionPane;
+
+public class Camisa extends Produto implements AlterarCarrinho {
 	
 	private String modelo, material, cor, fornecedor, ilustrador, tamanho;
 
@@ -15,25 +17,23 @@ public class Camisa extends Produto {
 		this.tamanho = tamanho;
 	}
 	
-	@Override
+	
 	public void adicionarItem(Produto camisa) {
 		if(camisa.isDisponibilidade() == true)
 			CarrinhoCompra.adicionarProduto(camisa);
 		else 
-			System.out.println("Não há estoque do produto solicitado");		
+			JOptionPane.showMessageDialog(null, "Nao ha estoque do produto solicitado");		
 	}
 	
-	// Implementar método removerItem da interface alterarCarrinho
-	@Override
+	
 	public boolean removerItem(Produto camisa) {
-		// TODO Auto-generated method stub
 		return false;
 	}	
 	
 	@Override
 	 public String toString() {
 		return ("Nome: "+super.getNome()
-		+"\nDescri��o: "+super.getDescricao()
+		+"\nDescricao: "+super.getDescricao()
 		+"\nPreco: "+super.getPreco()
 		+"\nDisponibilidade: "+super.isDisponibilidade()
 		+"\nUnidades: "+super.getUnidadesDisponiveis()
