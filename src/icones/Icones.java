@@ -73,5 +73,20 @@ public class Icones {
 		ImageIcon bol = new ImageIcon(Icones.class.getResource("Boleto.png"));
 		return bol;
 	}
+	
+	//Icone da Loja
+	
+	public static ImageIcon iconeLoja() {
+		ImageIcon logo = new ImageIcon(Icones.class.getResource("Logo.jpg"));
+		return logo;
+		
+	}
+	
+	//Icone dos Menus
+	
+	public static ImageIcon iconeLogin() {
+		ImageIcon login = new ImageIcon(Icones.class.getResource("Login.png"));
+		return login;
+	}
 }
 

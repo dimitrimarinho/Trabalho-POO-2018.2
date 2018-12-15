@@ -18,9 +18,14 @@ public class Livro extends Titulo implements AlterarCarrinho {
 	
 	
 	public void adicionarItem(Produto livro) {
-		if(livro.isDisponibilidade() == true)
-			CarrinhoCompra.adicionarProduto(livro);
-		else 
+		int verif = JOptionPane.DEFAULT_OPTION, dec = livro.getUnidadesDisponiveis();
+		if(livro.isDisponibilidade() == true) {
+			verif = JOptionPane.showConfirmDialog(null, "Deseja Adicionar o Produto Ao Carrinho?");
+			if(verif == JOptionPane.YES_OPTION) {
+				CarrinhoCompra.adicionarProduto(livro);
+				livro.setUnidadesDisponiveis(dec - 1);
+			}
+		}else 
 			JOptionPane.showMessageDialog(null, "Nao ha estoque do produto solicitado");
 	}
 	
@@ -41,7 +46,7 @@ public class Livro extends Titulo implements AlterarCarrinho {
 		+"\nISBN: "+getISBN()
 		+"\nMaterial da Capa: "+getMaterialCapa()
 		+"\nIdioma: "+getIdioma()
-		+"\nPeso: "+getPeso()
+		+"\nPeso: "+getPeso() + "kg"
 		+"\nAno de Lancamento: "+getAnoLancamento()
 		+"\nNumero de Paginas: "+getPaginas()
 		+"\nAutor: "+getAutor()

@@ -4,13 +4,13 @@ import javax.swing.JOptionPane;
 
 public class Manga extends Titulo implements AlterarCarrinho {
 	
-	private String mangaka, personagemPrincipal, ilustrador;
+	private String mangaka, personagemPrincipal, ilustrador, sagaFinalizada;
 	private int quantidadePublicada;
-	private boolean sagaFinalizada;
+	
 	
 	public Manga(String id, String nome, String descricao, double preco, boolean disponibilidade, int unidadesDisponiveis, String categoria,
 			String editora, String iSBN, String materialCapa, String idioma, double peso, int anoLancamento, int paginas,
-			String mangaka, String personagemPrincipal, String ilustrador, int quantidadePublicada, boolean sagaFinalizada) {
+			String mangaka, String personagemPrincipal, String ilustrador, int quantidadePublicada, String sagaFinalizada) {
 		
 		super(id, nome, descricao, preco, disponibilidade, unidadesDisponiveis, categoria, editora, iSBN, materialCapa, idioma, peso,
 				anoLancamento, paginas);
@@ -23,9 +23,14 @@ public class Manga extends Titulo implements AlterarCarrinho {
 	
 	
 	public void adicionarItem(Produto manga) {
-		if(manga.isDisponibilidade() == true)
-			CarrinhoCompra.adicionarProduto(manga);
-		else 
+		int verif = JOptionPane.DEFAULT_OPTION, dec = manga.getUnidadesDisponiveis();
+		if(manga.isDisponibilidade() == true) {
+			verif = JOptionPane.showConfirmDialog(null, "Deseja Adicionar o Produto Ao Carrinho?");
+			if(verif == JOptionPane.YES_OPTION) {
+				CarrinhoCompra.adicionarProduto(manga);
+				manga.setUnidadesDisponiveis(dec - 1);
+			}
+		}else 
 			JOptionPane.showMessageDialog(null, "Nao ha estoque do produto solicitado");				
 	}
 	
@@ -46,14 +51,14 @@ public class Manga extends Titulo implements AlterarCarrinho {
 		+"\nISBN: "+getISBN()
 		+"\nMaterial da Capa: "+getMaterialCapa()
 		+"\nIdioma: "+getIdioma()
-		+"\nPeso: "+getPeso()
+		+"\nPeso: "+getPeso() + "kg"
 		+"\nAno de Lancamento: "+getAnoLancamento()
 		+"\nNumero de Paginas: "+getPaginas()
 		+"\nMangaka: "+getMangaka()
 		+"\nPersonagem Principal: "+getPersonagemPrincipal()
 		+"Ilustrador: "+getIlustrador()
 		+"\nQuantidade Publicada: "+getQuantidadePublicada()
-		+"\nSaga Finalizada: "+isSagaFinalizada());
+		+"\nSaga Finalizada: "+getSagaFinalizada());
 	}
 	
 
@@ -73,13 +78,16 @@ public class Manga extends Titulo implements AlterarCarrinho {
 		this.quantidadePublicada = quantidadePublicada;
 	}
 
-	public boolean isSagaFinalizada() {
+
+	public String getSagaFinalizada() {
 		return sagaFinalizada;
 	}
 
-	public void setSagaFinalizada(boolean sagaFinalizada) {
+
+	public void setSagaFinalizada(String sagaFinalizada) {
 		this.sagaFinalizada = sagaFinalizada;
 	}
+
 
 	public String getPersonagemPrincipal() {
 		return personagemPrincipal;

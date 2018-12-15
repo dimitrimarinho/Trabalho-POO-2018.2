@@ -21,7 +21,7 @@ public class ExibirProdutos {
 	}
 	
 	public static void exibirProduto(Livro l) {
-		ImageIcon livro = Icones.iconeColecionavel();
+		ImageIcon livro = Icones.iconeLivro();
 		JOptionPane.showMessageDialog(null, l.toString(), "Informacoes do Produto",JOptionPane.INFORMATION_MESSAGE, livro);
 		
 	}
@@ -33,24 +33,24 @@ public class ExibirProdutos {
 	}
 	
 	public static void exibirProduto(Quadrinho q) {
-		ImageIcon quadrinho = Icones.iconeGames();
+		ImageIcon quadrinho = Icones.iconeQuadrinho();
 		JOptionPane.showMessageDialog(null, q.toString(), "Informacoes do Produto", JOptionPane.INFORMATION_MESSAGE, quadrinho);
 	}
 	
 	public static void exibirProduto(Manga m) {
-		ImageIcon manga = Icones.iconeGames();
+		ImageIcon manga = Icones.iconeManga();
 		JOptionPane.showMessageDialog(null, m.toString(), "Informacoes do Produto", JOptionPane.INFORMATION_MESSAGE, manga);
 		
 	}
 	
 	public static void exibirProduto(Botton b) {
-		ImageIcon botton = Icones.iconeGames();
+		ImageIcon botton = Icones.iconeBotton();
 		JOptionPane.showMessageDialog(null, b.toString(), "Informacoes do Produto", JOptionPane.INFORMATION_MESSAGE, botton);
 		
 	}
 	
 	public static void exibirProduto(Estojo e) {
-		ImageIcon estojo = Icones.iconeGames();
+		ImageIcon estojo = Icones.iconeEstojo();
 		JOptionPane.showMessageDialog(null, e.toString(), "Informacoes do Produto", JOptionPane.INFORMATION_MESSAGE, estojo);
 		
 	}

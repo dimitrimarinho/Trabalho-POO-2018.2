@@ -19,9 +19,14 @@ public class Camisa extends Produto implements AlterarCarrinho {
 	
 	
 	public void adicionarItem(Produto camisa) {
-		if(camisa.isDisponibilidade() == true)
-			CarrinhoCompra.adicionarProduto(camisa);
-		else 
+		int verif = JOptionPane.DEFAULT_OPTION, dec = camisa.getUnidadesDisponiveis();
+		if(camisa.isDisponibilidade() == true) {
+			verif = JOptionPane.showConfirmDialog(null, "Deseja Adicionar o Produto Ao Carrinho?");
+			if(verif == JOptionPane.YES_OPTION) {
+				CarrinhoCompra.adicionarProduto(camisa);
+				camisa.setUnidadesDisponiveis(dec - 1);
+			}
+		}else 
 			JOptionPane.showMessageDialog(null, "Nao ha estoque do produto solicitado");		
 	}
 	

@@ -16,9 +16,14 @@ public class Botton extends Acessorio implements AlterarCarrinho {
 	
 	
 	public void adicionarItem(Produto botton) {
-		if(botton.isDisponibilidade() == true)
-			CarrinhoCompra.adicionarProduto(botton);
-		else 
+		int verif = JOptionPane.DEFAULT_OPTION, dec = botton.getUnidadesDisponiveis();
+		if(botton.isDisponibilidade() == true) {
+			verif = JOptionPane.showConfirmDialog(null, "Deseja Adicionar o Produto Ao Carrinho?");
+			if(verif == JOptionPane.YES_OPTION) {
+				CarrinhoCompra.adicionarProduto(botton);
+				botton.setUnidadesDisponiveis(dec - 1);
+			}
+		}else 
 			JOptionPane.showMessageDialog(null, "Nao ha estoque do produto solicitado");
 	}
 	

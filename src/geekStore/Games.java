@@ -27,9 +27,14 @@ public class Games extends Produto implements AlterarCarrinho {
 	
 	
 	public void adicionarItem(Produto games) {
-		if(games.isDisponibilidade() == true)
-			CarrinhoCompra.adicionarProduto(games);
-		else 
+		int verif = JOptionPane.DEFAULT_OPTION, dec = games.getUnidadesDisponiveis();
+		if(games.isDisponibilidade() == true) {
+			verif = JOptionPane.showConfirmDialog(null, "Deseja Adicionar o Produto Ao Carrinho?");
+			if(verif == JOptionPane.YES_OPTION) {
+				CarrinhoCompra.adicionarProduto(games);
+				games.setUnidadesDisponiveis(dec - 1);
+			}
+		}else 
 			JOptionPane.showMessageDialog(null, "Nao ha estoque do produto solicitado");			
 	}
 	

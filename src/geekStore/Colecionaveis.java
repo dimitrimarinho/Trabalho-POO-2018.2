@@ -22,10 +22,15 @@ public class Colecionaveis extends Produto implements AlterarCarrinho {
 	
 	
 	public void adicionarItem(Produto colecionaveis) {
-		if(colecionaveis.isDisponibilidade() == true)
-			CarrinhoCompra.adicionarProduto(colecionaveis);
-		else 
-			JOptionPane.showMessageDialog(null, "Nao ha estoque do produto solicitado");			
+		int verif = JOptionPane.DEFAULT_OPTION, dec = colecionaveis.getUnidadesDisponiveis();
+		if(colecionaveis.isDisponibilidade() == true) {
+			verif = JOptionPane.showConfirmDialog(null, "Deseja Adicionar o Produto Ao Carrinho?");
+			if(verif == JOptionPane.YES_OPTION) {
+				CarrinhoCompra.adicionarProduto(colecionaveis);
+				colecionaveis.setUnidadesDisponiveis(dec - 1);
+			}
+		}else 
+			JOptionPane.showMessageDialog(null, "Nao ha estoque do produto solicitado");		
 	}
 	
 	
@@ -41,7 +46,7 @@ public class Colecionaveis extends Produto implements AlterarCarrinho {
 		+"\nDisponibilidade: "+super.isDisponibilidade()
 		+"\nUnidades: "+super.getUnidadesDisponiveis()
 		+"\nCategoria: "+getCategoria()
-		+"\nDimensoes: "+getDimensoes()
+		+"\nDimensoes (cm): "+getDimensoes()
 		+"\nConteudo da Caixa: "+getConteudoCaixa()
 		+"\nMaterial: "+getMaterial()
 		+"\nMarca: "+getMarca()

@@ -4,12 +4,11 @@ import javax.swing.JOptionPane;
 
 public class Quadrinho extends Titulo implements AlterarCarrinho {
 
-	private String nacionalidade, personagemPrincipal, ilustrador, licenciador;
-	private boolean sagaFinalizada;
+	private String nacionalidade, personagemPrincipal, ilustrador, licenciador, sagaFinalizada;
 	
 	public Quadrinho(String id, String nome, String descricao, double preco, boolean disponibilidade, int unidadesDisponiveis,
 			String categoria, String editora, String iSBN, String materialCapa, String idioma, double peso, 
-			int anoLancamento, int paginas, String nacionalidade, String personagemPrincipal, boolean sagaFinalizada,
+			int anoLancamento, int paginas, String nacionalidade, String personagemPrincipal, String sagaFinalizada,
 			String ilustrador, String licenciador) {
 		
 		super(id, nome, descricao, preco, disponibilidade, unidadesDisponiveis, categoria, editora, iSBN, materialCapa, idioma,
@@ -23,9 +22,14 @@ public class Quadrinho extends Titulo implements AlterarCarrinho {
 	
 	
 	public void adicionarItem(Produto quadrinho) {
-		if(quadrinho.isDisponibilidade() == true)
-			CarrinhoCompra.adicionarProduto(quadrinho);
-		else 
+		int verif = JOptionPane.DEFAULT_OPTION, dec = quadrinho.getUnidadesDisponiveis();
+		if(quadrinho.isDisponibilidade() == true) {
+			verif = JOptionPane.showConfirmDialog(null, "Deseja Adicionar o Produto Ao Carrinho?");
+			if(verif == JOptionPane.YES_OPTION) {
+				CarrinhoCompra.adicionarProduto(quadrinho);
+				quadrinho.setUnidadesDisponiveis(dec - 1);
+			}
+		}else 
 			JOptionPane.showMessageDialog(null, "Nao ha estoque do produto solicitado");
 	}
 	
@@ -46,14 +50,14 @@ public class Quadrinho extends Titulo implements AlterarCarrinho {
 		+"\nISBN: "+getISBN()
 		+"\nMaterial da Capa: "+getMaterialCapa()
 		+"\nIdioma: "+getIdioma()
-		+"\nPeso: "+getPeso()
+		+"\nPeso: "+getPeso() + "kg"
 		+"\nAno de Lancamento: "+getAnoLancamento()
 		+"\nNumero de Paginas: "+getPaginas()
 		+"\nNacionalidade: "+getNacionalidade()
 		+"\nPersonagem Principal: "+getPersonagemPrincipal()
 		+"\nLicenciador: "+getLicenciador()
 		+"\nIlustrador: "+getIlustrador()
-		+"\nSaga Finalizada: "+isSagaFinalizada());
+		+"\nSaga Finalizada: "+getSagaFinalizada());
 		
 	}
 
@@ -73,13 +77,16 @@ public class Quadrinho extends Titulo implements AlterarCarrinho {
 		this.personagemPrincipal = personagemPrincipal;
 	}
 
-	public boolean isSagaFinalizada() {
+
+	public String getSagaFinalizada() {
 		return sagaFinalizada;
 	}
 
-	public void setSagaFinalizada(boolean sagaFinalizada) {
+
+	public void setSagaFinalizada(String sagaFinalizada) {
 		this.sagaFinalizada = sagaFinalizada;
 	}
+
 
 	public String getIlustrador() {
 		return ilustrador;

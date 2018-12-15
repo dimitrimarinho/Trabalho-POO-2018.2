@@ -21,9 +21,14 @@ public class Estojo extends Acessorio implements AlterarCarrinho {
 	
 	
 	public void adicionarItem(Produto estojo) {
-		if(estojo.isDisponibilidade() == true)
-			CarrinhoCompra.adicionarProduto(estojo);
-		else 
+		int verif = JOptionPane.DEFAULT_OPTION, dec = estojo.getUnidadesDisponiveis();
+		if(estojo.isDisponibilidade() == true) {
+			verif = JOptionPane.showConfirmDialog(null, "Deseja Adicionar o Produto Ao Carrinho?");
+			if(verif == JOptionPane.YES_OPTION) {
+				CarrinhoCompra.adicionarProduto(estojo);
+				estojo.setUnidadesDisponiveis(dec - 1);
+			}
+		}else 
 			JOptionPane.showMessageDialog(null, "Nao ha estoque do produto solicitado");
 	}
 	
@@ -41,9 +46,9 @@ public class Estojo extends Acessorio implements AlterarCarrinho {
 		+"\nUnidades: "+super.getUnidadesDisponiveis()
 		+"\nCategoria: "+getCategoria()
 		+"\nMaterial: "+getMaterial()
-		+"\nDimensoes: "+getDimensoes()
+		+"\nDimensoes(cm): "+getDimensoes()
 		+"\nNumero de Compartimentos: "+getNumeroCompartimentos()
-		+"\nProfundidade: "+getProfundidade()
+		+"\nProfundidade: "+getProfundidade() + "cm"
 		+"\nCor: "+getCor()
 		+"\nMarca: "+getMarca());
 	}
