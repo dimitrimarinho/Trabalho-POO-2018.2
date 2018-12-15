@@ -1,4 +1,4 @@
-package Teste;
+package teste;
 
 import menus.*;
 
