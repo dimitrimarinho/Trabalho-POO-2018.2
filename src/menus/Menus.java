@@ -44,10 +44,14 @@ public class Menus {
 				
 			}else if(cont == 1) {
 				menuFuncionario();
+				break;
 			}
 		
 		}
 	}
+	
+	
+	
 	
 	public static void menuRemoverClientes() {
 		int cont = 0;
@@ -56,20 +60,36 @@ public class Menus {
 		
 		if(cont==0) {
 			JOptionPane.showMessageDialog(null, "   Cliente Nao Encontrado!");
+		}else {
+			JOptionPane.showMessageDialog(null, "   Cliente Removido Com Sucesso!");
 		}
 		
 	}
 	
+	
+	
 	public static void menuRemoverFormaPagamentos() {
-		int cont = 0;
-		int id = Integer.parseInt(JOptionPane.showInputDialog("Informe o ID da Forma de Pagamento Que Deseja Remover:"));
+		int id, cont = 0;
+		try {
+			id = Integer.parseInt(JOptionPane.showInputDialog("Informe o ID da Forma de Pagamento Que Deseja Remover:"));
+		}catch(NumberFormatException ex) {
+			throw new NumberFormatException("O ID Deve Ser Um Numero Inteiro");
+		}
+		
+		if(id <= 0) {
+			throw new IllegalArgumentException("O ID Deve Ser Um Numero Inteiro Positivo");
+		}
 		cont = Loja.removerFormaPagamento(id);
 		
 		if(cont==0) {
 			JOptionPane.showMessageDialog(null, "Forma de Pagamento Nao Encontrada!");
+		}else {
+			JOptionPane.showMessageDialog(null, "   Forma de Pagamento Removida Com Sucesso!");
 		}
 		
 	}
+	
+	
 	
 	public static void  menuRemoverProdutos() {
 		int cont = 0;
@@ -78,37 +98,368 @@ public class Menus {
 		
 		if(cont==0) {
 			JOptionPane.showMessageDialog(null, "   Produto Nao Encontrado!");
+		}else {
+			JOptionPane.showMessageDialog(null, "   Produto Removido Com Sucesso!");
 		}
 	}
 	
 	
-	public static void menuConsultarFormasPagamento() {
+	
+	public static void menuConsultarCredito() {
+		int cont = 0;
 		ArrayList <FormaPagamento> listapag = Loja.getListaFormasPagamento();
+		
 		for(int i = 0; i < listapag.size(); i++) {
 			if(listapag.get(i) instanceof CartaoCredito ) {
 				ExibirFormasPagamento.exibirFormaPagamento((CartaoCredito) listapag.get(i));
-			}else if(listapag.get(i) instanceof BoletoBancario) {
-				ExibirFormasPagamento.exibirFormaPagamento((BoletoBancario) listapag.get(i));
+				cont = 1;
 			}
-		}	
+		}
+		
+		if(cont == 0) {
+			JOptionPane.showMessageDialog(null, "Nao Ha Cadastro da Forma de Pagamento");
+		}
 	}
 	
 	
-	public static void menuConsultarClientes() {
+	
+	public static void menuConsultarBoleto() {
+		int cont = 0;
+		ArrayList <FormaPagamento> listapag = Loja.getListaFormasPagamento();
+		for(int i = 0; i < listapag.size(); i++) {
+			if(listapag.get(i) instanceof BoletoBancario) {
+				ExibirFormasPagamento.exibirFormaPagamento((BoletoBancario) listapag.get(i));
+				cont = 1;
+			}
+		}
+		
+		if(cont == 0) {
+			JOptionPane.showMessageDialog(null, "Nao Ha Cadastro da Forma de Pagamento");
+		}
+	}
+	
+	
+	
+	public static void menuConsultarFormasPagamento() {
+		ImageIcon logo = Icones.iconeLoja();
+		int verif = JOptionPane.YES_OPTION;
+		
+		while(verif == JOptionPane.YES_OPTION){
+			String op =  (String) JOptionPane.showInputDialog(null,
+			"Selecione a Forma de Pagamento que Deseja Consultar:"
+			+"\n(1) - Cartao de Credito"
+			+"\n(2) - Boleto Bancario"
+			,Loja.getNome(), 0, logo, null, "");
+			
+			switch(op) {
+			
+			case "1":
+				menuConsultarCredito();
+				break;
+			
+			case "2":
+				menuConsultarBoleto();
+				break;
+				
+				
+			default:
+				JOptionPane.showMessageDialog(null, "         Opcao Invalida!");
+				
+			}
+			
+			verif = JOptionPane.showConfirmDialog(null, "Deseja Voltar Ao Menu de Consulta?");
+		}
+		
+	}
+	
+	public static void menuConsultarFisica() {
+		int cont = 0;
 		ArrayList <Cliente> lista = Loja.getListaClientes();
+		
 		for(int i = 0; i < lista.size(); i++) {
 			if(lista.get(i) instanceof PessoaFisica ) {
 				ExibirClientes.exibirPessoa((PessoaFisica) lista.get(i));
-			}else if(lista.get(i) instanceof PessoaJuridica) {
-				ExibirClientes.exibirPessoa((PessoaJuridica) lista.get(i));
+				cont = 1;
 			}
-		}	
+		}
+		
+		if(cont == 0) {
+			JOptionPane.showMessageDialog(null, "Nao Ha Clientes Cadastrados");
+		}
 	}
+	
+	
+	
+	public static void menuConsultarJuridica() {
+		int cont = 0;
+		ArrayList <Cliente> lista = Loja.getListaClientes();
+		
+		for(int i = 0; i < lista.size(); i++) {
+			if(lista.get(i) instanceof PessoaJuridica) {
+				ExibirClientes.exibirPessoa((PessoaJuridica) lista.get(i));
+				cont = 1;
+			}
+		}
+		
+		if(cont == 0) {
+			JOptionPane.showMessageDialog(null, "Nao Ha Clientes Cadastrados");
+		}
+	}
+	
+	
+	
+	public static void menuConsultarClientes() {
+		ImageIcon logo = Icones.iconeLoja();
+		int verif = JOptionPane.YES_OPTION;
+		
+		while(verif == JOptionPane.YES_OPTION){
+			String op =  (String) JOptionPane.showInputDialog(null,
+			"Selecione o Tipo Cliente que Deseja Consultar:"
+			+"\n(1) - Pessoa Fisica"
+			+"\n(2) - Pessoa Juridica"
+			,Loja.getNome(), 0, logo, null, "");
+			
+			switch(op) {
+			
+			case "1":
+				menuConsultarFisica();
+				break;
+			
+			case "2":
+				menuConsultarJuridica();
+				break;
+				
+				
+			default:
+				JOptionPane.showMessageDialog(null, "         Opcao Invalida!");
+				
+			}
+			
+			verif = JOptionPane.showConfirmDialog(null, "Deseja Voltar Ao Menu de Consulta?");
+		}
+		
+	}
+	
+	
+	
+	public static void menuConfirmarPagamento() {
+		String nome = null, op = null, infos = null;
+		ArrayList<Cliente> listaclientes = Loja.getListaClientes();
+		ImageIcon logo = Icones.iconeLoja();
+		ImageIcon boleto = Icones.iconeBoleto();
+		ImageIcon nota = Icones.iconeNota();
+		int verif = JOptionPane.showConfirmDialog(null, "Voce e Um Cliente Cadastrado?");
+		int cont = 0, cont1 = 0;
+		
+		if(verif == JOptionPane.YES_OPTION) {
+			int tipo = JOptionPane.showConfirmDialog(null, "Voce e Uma Pessoa Fisica");
+			if(tipo == JOptionPane.YES_OPTION) {
+				nome = JOptionPane.showInputDialog("Informe Seu Nome Completo:");
+				
+			}else {
+				nome = JOptionPane.showInputDialog("Informe O Nome da Empresa");
+			}
+			
+			for(int i = 0; i < listaclientes.size(); i++) {
+				if(listaclientes.get(i).getNome().equals(nome)) {
+					if(listaclientes.get(i) instanceof PessoaFisica ) {
+						ExibirClientes.exibirPessoa((PessoaFisica) listaclientes.get(i));
+					}else if(listaclientes.get(i) instanceof PessoaJuridica) {
+						ExibirClientes.exibirPessoa((PessoaJuridica) listaclientes.get(i));
+					}
+					cont = 1;
+					break;
+				}
+			}
+			if(cont == 0 ) {
+				JOptionPane.showMessageDialog(null, "Cliente Nao Cadastrado!");
+			}else {
+				while(verif == JOptionPane.YES_OPTION) {
+					op =  (String) JOptionPane.showInputDialog(null,
+							"Selecione a Forma de Pagamento que Deseja Utilizar Na Compra:"
+							+"\n(1) - Cartao de Credito"
+							+"\n(2) - Boleto Bancario"
+							,Loja.getNome(), 0, logo, null, "");
+							
+							switch(op) {
+							
+							case "1":
+								infos =  menuCartao();
+								if(infos == null) {
+									cont1 = 0;
+								}else {
+									cont1 = 2;
+								}
+								verif = JOptionPane.NO_OPTION;
+								break;
+							
+							case "2":
+								infos = menuBoleto();
+								if(infos == null) {
+									cont1 = 0;
+								}else {
+									cont1 = 3;
+								}
+								verif = JOptionPane.NO_OPTION;
+								break;
+								
+							default:
+								JOptionPane.showMessageDialog(null, "         Opcao Invalida!");
+								verif = JOptionPane.showConfirmDialog(null, "Deseja Voltar Ao Menu de Selecao da Forma de Pagamento?");
+					
+							}
+				}
+			}
+			
+			if(cont1 == 2) {
+				JOptionPane.showMessageDialog(null,"Cliente: "+nome + "\n" +infos, "Nota Fiscal", JOptionPane.INFORMATION_MESSAGE, nota);
+			}else if(cont1 == 3) {
+				JOptionPane.showMessageDialog(null, "Cliente: "+nome + "\n" +infos, "Boleto Bancario", JOptionPane.INFORMATION_MESSAGE, boleto);
+			}else {
+				JOptionPane.showMessageDialog(null, "Nao e Possivel Realizar a Compra!");
+			}
+			
+			
+		}else {
+			JOptionPane.showMessageDialog(null, "Nao e Possivel Realizar a Compra!");
+		}
+		
+		
+	}
+	
+	
+	
+	public static String menuCartao() {
+		String numcard = null, bandeira = null, infos = null;
+		String carrinhoCompra = "";
+		CartaoCredito c;
+		int prazo = 0;
+		int numparc = 0, ano = 0, cont = 0,verif = JOptionPane.YES_OPTION;
+		ArrayList<FormaPagamento> credito = Loja.getListaFormasPagamento();
+		ArrayList<Produto> carrinho = CarrinhoCompra.getCarrinhoCompra();
+		ArrayList<Integer> quantidade = CarrinhoCompra.getQtd();
+		
+		
+		while(verif == JOptionPane.YES_OPTION) {
+			numcard = JOptionPane.showInputDialog("Informe o Numero do Cartao de Credito");
+			try {
+				numparc = Integer.parseInt(JOptionPane.showInputDialog("Informe o Numero Parcelas (Maximo 12x)"));
+			}catch(NumberFormatException ex) {
+				throw new NumberFormatException("O Numero de Parcelas Deve Ser Inteiro");
+			}
+		
+			while(numparc > 12 || numparc < 1) {
+				JOptionPane.showMessageDialog(null, "Numero de Parcelas Invalido!");
+				try {
+					numparc = Integer.parseInt(JOptionPane.showInputDialog("Informe o Numero Parcelas (Maximo 12x)"));
+				}catch(NumberFormatException ex) {
+					throw new NumberFormatException("O Numero de Parcelas Deve Ser Inteiro");
+				}
+				
+			}
+			
+			try {
+				ano = Integer.parseInt(JOptionPane.showInputDialog("Informe o Ano de Vencimento do Cartao"));
+			}catch(NumberFormatException ex) {
+				throw new NumberFormatException("O Ano Deve Ser Um Numero Inteiro");
+			}
+			
+			 if(ano < 2018) {
+				 JOptionPane.showMessageDialog(null, "Cartao Vencido!");
+				 verif = JOptionPane.showConfirmDialog(null, "Deseja Reecadastrar a Forma de Pagamento?");
+			 }else {
+					 bandeira = JOptionPane.showInputDialog("Informe a Bandeira do Cartão:");
+					 for(int i  = 0; i < credito.size(); i++) {
+						 if(credito.get(i) instanceof CartaoCredito) {
+							 c = (CartaoCredito) credito.get(i);
+							 if(c.getBandeira().equals(bandeira)) {
+								 prazo = c.getPrazoPagamento();
+								 cont = 1;
+								 break;
+							 }
+						 }
+					 }
+					 
+					 if(cont == 0) {
+						 JOptionPane.showMessageDialog(null, "Bandeira Invalida Para Compra!");
+						 verif = JOptionPane.showConfirmDialog(null, "Deseja Reecadastrar a Forma de Pagamento?");
+					 }else {
+						 verif = JOptionPane.NO_OPTION;
+					 }
+			 } 
+		}
+		
+		for(int i = 0; i < carrinho.size(); i++) {
+			 carrinhoCompra = carrinhoCompra + (i+1)+ ":  " +carrinho.get(i).getId() + " " +carrinho.get(i).getNome() + " " 
+					+ quantidade.get(i) + " UN x "+carrinho.get(i).getPreco() + "   "+(carrinho.get(i).getPreco() * quantidade.get(i)) + "\n";
+			
+		}
+		
+		if(cont == 1) {
+		
+			infos = "Produtos:\n"+carrinhoCompra
+					+"\nNumero do Cartao: "+numcard
+					+"\nNumero de Parcelas: "+numparc
+					+"\nValor Total: "+CarrinhoCompra.getValorCompra()
+					+"\nValor Parcelado: "+(CarrinhoCompra.getValorCompra() / numparc)
+					+"\nAno de Vencimento do Cartao: "+ano
+					+"\nBandeira: "+bandeira
+					+"\nPrazo de Pagamento: "+prazo;
+		}else {
+			infos = null;
+		}
+		
+		return infos;
+		
+			
+	}
+	
+	
+	
+	
+	public static String menuBoleto() {
+		String carrinhoCompra = "", nomeBanco = null, infos;
+		int prazo = 0;
+		BoletoBancario banco;
+		ArrayList<Produto> carrinho = CarrinhoCompra.getCarrinhoCompra();
+		ArrayList<Integer> quantidade = CarrinhoCompra.getQtd();
+		ArrayList<FormaPagamento> formas = Loja.getListaFormasPagamento();
+		
+		for(int i = 0; i < carrinho.size(); i++) {
+			 carrinhoCompra = carrinhoCompra + (i+1)+ ":  " +carrinho.get(i).getId() + " " +carrinho.get(i).getNome() + " " 
+					+ quantidade.get(i) + " UN x "+carrinho.get(i).getPreco() + "   "+(carrinho.get(i).getPreco() * quantidade.get(i)) + "\n";
+			
+		}
+	
+		for(int i = 0; i < formas.size(); i++) {
+			if(formas.get(i) instanceof BoletoBancario) {
+				banco = (BoletoBancario) formas.get(i);
+				prazo = banco.getPrazoPagamento();
+				nomeBanco = banco.getBanco();
+				break;
+			}
+		}
+		
+		if(nomeBanco== null) {
+			infos = null;
+		}else {
+			
+			infos = "Produtos:\n" +carrinhoCompra
+			+"\nBanco Emissor: " +nomeBanco 
+			+"\nPrazo de Pagamento: "+prazo
+			+"\nValor Total: " +CarrinhoCompra.getValorCompra()
+			+"\nValor Com Desconto: "+(CarrinhoCompra.getValorCompra() - (CarrinhoCompra.getValorCompra() * 0.1));
+		}
+			
+		return infos;
+	}
+	
+	
 	
 	
 	public static void menuComprarProdutos() {
 		ImageIcon logo = Icones.iconeLoja();
-		int verif = JOptionPane.YES_OPTION;
+		int verif = JOptionPane.YES_OPTION, cont;
 		
 		while(verif == JOptionPane.YES_OPTION){
 			String op =  (String) JOptionPane.showInputDialog(null,
@@ -165,7 +516,80 @@ public class Menus {
 			verif = JOptionPane.showConfirmDialog(null, "Deseja Voltar Ao Menu de Compra?");
 		}
 		
+		if(CarrinhoCompra.getCarrinhoCompra().size()!= 0) {
+			CarrinhoCompra.exibirCarrinho();
+			cont = menuRemoverProduto();
+			if(cont == 1) {
+				if(CarrinhoCompra.getValorCompra() != 0) {
+					CarrinhoCompra.exibirCarrinho();
+					verif = JOptionPane.showConfirmDialog(null, "Confirmar Compra?");
+				}
+			}else if(cont == 0) {
+				verif = JOptionPane.showConfirmDialog(null, "Confirmar Compra?");
+			}
+				
+			if(verif == JOptionPane.YES_OPTION) {
+				menuConfirmarPagamento();
+			}
+		}
+		
 	}
+	
+	
+	
+	
+	public static int menuRemoverProduto() {
+		 int verif = JOptionPane.showConfirmDialog(null, "Deseja Remover Algum Produto do Carrinho?");
+		 int qtd, cont = 0;
+		 String id = null;
+		 ArrayList <Integer> listaqtd = CarrinhoCompra.getQtd();
+		 ArrayList <Produto> carrinho = CarrinhoCompra.getCarrinhoCompra();
+		
+		while(verif == JOptionPane.YES_OPTION) {
+			id = JOptionPane.showInputDialog("Informe o ID do Produto Que Deseja Remover:");
+			
+			try {
+				qtd = Integer.parseInt(JOptionPane.showInputDialog("Informe o Numero de Unidades do Produto Que Deseja Remover:"));
+			}catch(NumberFormatException ex) {
+				throw new NumberFormatException("O Numero de Unidades Deve Ser Inteiro");
+			}
+			
+			if(qtd <= 0) {
+				throw new IllegalArgumentException("O Numero de Unidades Deve Ser Um Numero Inteiro Positivo");
+			}
+			
+			for(int i = 0; i < carrinho.size(); i++) {
+				if(carrinho.get(i).getId().equals(id)) {
+					if(qtd == listaqtd.get(i)) {
+						CarrinhoCompra.removerProduto(id, qtd);
+						cont = 1;
+						verif = 3;
+						break;
+					}else if(qtd < listaqtd.get(i) && qtd >= 0 ) {
+						listaqtd.set(i, listaqtd.get(i) - qtd);
+						CarrinhoCompra.setQtd(listaqtd);
+						cont = 1;
+						verif = 3;
+						break;
+					}else {
+						JOptionPane.showMessageDialog(null, "    Quantidade Invalida!");
+						cont = 1;
+						break;
+						
+					}
+				}
+			}
+			
+			if(cont == 0) {
+				JOptionPane.showMessageDialog(null, "    ID Nao Encontrado");
+			}
+			
+			verif = JOptionPane.showConfirmDialog(null, "Deseja Continuar Removendo?");
+		}
+		
+		return cont;
+	}
+	
 	
 	
 	public static void menuConsultarCatalogo() {
@@ -231,6 +655,8 @@ public class Menus {
 	}
 	
 	
+	
+	
 	public static void menuCadastroFormasPagamento() {
 		int cont = 0, verif = JOptionPane.YES_OPTION;
 		ImageIcon logo = Icones.iconeLoja();
@@ -268,6 +694,8 @@ public class Menus {
 		}
 		
 	}
+	
+	
 	
 	
 	public static void menuCadastroClientes() {
@@ -376,9 +804,12 @@ public class Menus {
 			
 	}
 	
+	
+	
+	
 	public static void menuCliente() {
 		ImageIcon logo = Icones.iconeLoja();
-		int verif = JOptionPane.YES_OPTION;
+		int verif = JOptionPane.YES_OPTION, cont = 0;
 		
 		while(verif == JOptionPane.YES_OPTION){
 			String op =  (String) JOptionPane.showInputDialog(null,
@@ -397,20 +828,28 @@ public class Menus {
 			
 			case "2":
 				menuComprarProdutos();
+				cont = 1;
 				break;
 				
 			default:
 				JOptionPane.showMessageDialog(null, "         Opcao Invalida!");
+					
+			}
+			
+			if(cont == 1) {
+				verif = JOptionPane.NO_OPTION;
+				JOptionPane.showMessageDialog(null, "VOLTE SEMPRE!", Loja.getNome(), 0, logo);
+				
+			}else {
+				verif = JOptionPane.showConfirmDialog(null, "Deseja Voltar Ao Menu Principal?");
 				
 			}
 			
-			verif = JOptionPane.showConfirmDialog(null, "Deseja Voltar Ao Menu Principal?");
 		}
-		
-		JOptionPane.showMessageDialog(null, "VOLTE SEMPRE!", Loja.getNome(), 0, logo);
 				
 	}
 		
+	
 	
 	
 	public static void menuFuncionario() {
@@ -487,7 +926,6 @@ public class Menus {
 		}else
 			JOptionPane.showMessageDialog(null, "VOLTE SEMPRE!", Loja.getNome(), 0, logo);
 		
-			
 	}
 
 }

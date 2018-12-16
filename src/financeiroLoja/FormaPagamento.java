@@ -18,7 +18,7 @@ public abstract class FormaPagamento {
 		public String toString() {
 			return("ID: "+getId()
 			+"\nTipo: "+getTipo()
-			+"\nPrazo de Pagamento: "+getPrazoPagamento()
+			+"\nPrazo de Pagamento: "+getPrazoPagamento() + " Dias"
 			+"\nStatus: "+isAtivo());
 			
 		}

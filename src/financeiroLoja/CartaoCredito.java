@@ -18,7 +18,7 @@ public class CartaoCredito extends FormaPagamento {
 	public String toString() {
 		return(super.toString()
 		+"\nBandeira: "+getBandeira()
-		+"\nTaxa de Retencao: "+getTaxaRetencao());
+		+"\nTaxa de Retencao: "+getTaxaRetencao() + "%");
 	}
 	
 	

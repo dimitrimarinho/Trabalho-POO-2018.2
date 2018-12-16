@@ -44,7 +44,7 @@ public class CadastroClientes {
 		int cont = 0;
 		
 		nome = JOptionPane.showInputDialog("Informe o Nome da Pessoa Juridica:");
-		for(int i = 0; i< Loja.getEstoque().size(); i++) {
+		for(int i = 0; i< Loja.getListaClientes().size(); i++) {
 			if(Loja.getListaClientes().get(i).getNome().equals(nome)) {
 				JOptionPane.showMessageDialog(null, "Pessoa Juridica Ja Cadastrada!");
 				cont = 1;

@@ -14,7 +14,7 @@ public class BoletoBancario extends FormaPagamento {
 	
 	@Override
 	public String toString() {
-		return(super.toString()+"\nBanco: "+getBanco());
+		return(super.toString()+"\nBanco Emissor: "+getBanco());
 		
 	}
 

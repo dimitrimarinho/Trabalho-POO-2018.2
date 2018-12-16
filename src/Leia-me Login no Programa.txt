@@ -1,0 +1,4 @@
+Para acessar o programa, no menu de Login deve ser escolhida uma das duas Matriculas que cadastramos. As quais estão abaixo:
+
+1 - 217125708 - Para Logar como Ravier de Oliveira.
+2 - 216215220 - Para Logar como Dimitri Marinho.

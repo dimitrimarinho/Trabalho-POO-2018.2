@@ -23,21 +23,39 @@ public class Manga extends Titulo implements AlterarCarrinho {
 	
 	
 	public void adicionarItem(Produto manga) {
-		int verif = JOptionPane.DEFAULT_OPTION, dec = manga.getUnidadesDisponiveis();
+		int verif = JOptionPane.DEFAULT_OPTION, dec = manga.getUnidadesDisponiveis(), quant;
+		String verif2 = "M";
 		if(manga.isDisponibilidade() == true) {
 			verif = JOptionPane.showConfirmDialog(null, "Deseja Adicionar o Produto Ao Carrinho?");
 			if(verif == JOptionPane.YES_OPTION) {
-				CarrinhoCompra.adicionarProduto(manga);
-				manga.setUnidadesDisponiveis(dec - 1);
+				while(verif2.equals("M") ) {
+					try {
+						quant = Integer.parseInt(JOptionPane.showInputDialog("Informe a Quantidade do Produto:"));
+					}catch(NumberFormatException ex) {
+						throw new NumberFormatException("A Quantidade Deve Ser Um Numero Inteiro");
+					}
+					
+					if(quant <= 0) {
+						throw new IllegalArgumentException("A Quantidade Deve Ser Um Numero Inteiro Positivo");
+					}
+					
+					if(quant >= 1 && quant <= dec ) {
+						CarrinhoCompra.adicionarProduto(manga,quant);
+						JOptionPane.showMessageDialog(null, "     Produto Adicionado!");
+						manga.setUnidadesDisponiveis(dec - quant);
+						if(manga.getUnidadesDisponiveis() == 0) {
+							manga.setDisponibilidade(false);
+						}
+						verif2 = "OK";
+					}else {
+						JOptionPane.showMessageDialog(null, "     Quantidade Invalida!");
+					}
+				}
 			}
 		}else 
-			JOptionPane.showMessageDialog(null, "Nao ha estoque do produto solicitado");				
+			JOptionPane.showMessageDialog(null, "Nao ha estoque do produto solicitado");					
 	}
 	
-	
-	public boolean removerItem(Produto manga) {
-		return CarrinhoCompra.removerProduto(manga);
-	}	
 	
 	@Override
 	public String toString() {

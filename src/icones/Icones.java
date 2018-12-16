@@ -74,6 +74,11 @@ public class Icones {
 		return bol;
 	}
 	
+	public static ImageIcon iconeNota() {
+		ImageIcon nota = new ImageIcon(Icones.class.getResource("Nota.png"));
+		return nota;
+	}
+	
 	//Icone da Loja
 	
 	public static ImageIcon iconeLoja() {
@@ -87,6 +92,13 @@ public class Icones {
 	public static ImageIcon iconeLogin() {
 		ImageIcon login = new ImageIcon(Icones.class.getResource("Login.png"));
 		return login;
+	}
+	
+	//Icone das Compras
+	
+	public static ImageIcon iconeCarrinho() {
+		ImageIcon car = new ImageIcon(Icones.class.getResource("Carrinho.png"));
+		return car;
 	}
 }
 

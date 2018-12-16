@@ -1,52 +1,64 @@
 package geekStore;
 
 import java.util.ArrayList;
-import java.util.Iterator;
+import icones.*;
+
+import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 public class CarrinhoCompra {
 
-	private static ArrayList<Produto> carrinhoCompra;
-	private static double valorParcial, valorCompra;
-	private static boolean compraFinalizada;
+	private static  ArrayList<Produto> carrinhoCompra = new ArrayList<Produto>();
+	private static  ArrayList<Integer> qtd = new ArrayList<Integer>();
+	private static  double valorParcial = 0;
+	private static  double valorCompra = 0;
 	
-	public CarrinhoCompra() {
-		carrinhoCompra = new ArrayList<Produto>();
-		CarrinhoCompra.valorParcial = 0;
-		CarrinhoCompra.valorCompra = 0;
-		CarrinhoCompra.setCompraFinalizada(false);
-	}
 	
-	public static void adicionarProduto(Produto p) {
+	
+	public static void adicionarProduto(Produto p, int q) {
 		carrinhoCompra.add(p);
-		incrementaValorParcial(p);
+		qtd.add(q);
 	}
 	
-	public static boolean removerProduto(Produto p) {
+	public static boolean removerProduto(String id, int quant) {
 		boolean isRemovido = false;
-		for (Iterator<Produto> it = carrinhoCompra.iterator(); it.hasNext();) {
-			Produto search = (Produto) it.next();
-			if((search.getId()).equals(p.getId())){
-				carrinhoCompra.remove(p);
-				decrementaValorParcial(p);
+		for(int i = 0; i < carrinhoCompra.size(); i++) {
+			if(carrinhoCompra.get(i).getId().equals(id)) {
+				decrementaValorTotal(carrinhoCompra.get(i), quant);
+				carrinhoCompra.remove(carrinhoCompra.get(i));
+				qtd.remove(i);
 				isRemovido = true;
 				break;
-			}			
+			}
 		}
+	
 		return isRemovido;
 	}
 	
-	public static void incrementaValorParcial(Produto p) {
-		setValorParcial(getValorParcial() + p.getPreco());
+	
+	public static void exibirCarrinho() {
+		ImageIcon car =  Icones.iconeCarrinho();
+		String carrinhoCompra = "";
+		ArrayList<Produto> carrinho = getCarrinhoCompra();
+		ArrayList<Integer> quantidade = getQtd();
+		double valorParcial =  getValorParcial();
+		for(int i = 0; i < carrinho.size(); i++) {
+			 carrinhoCompra = carrinhoCompra + (i+1)+ ":  " +carrinho.get(i).getId() + " " +carrinho.get(i).getNome() + " " 
+					+ quantidade.get(i) + " UN x "+carrinho.get(i).getPreco() + "   "+(carrinho.get(i).getPreco() * quantidade.get(i)) + "\n";
+			valorParcial = valorParcial + (carrinho.get(i).getPreco() * quantidade.get(i));
+		}
+		
+		setValorCompra(valorParcial);
+		
+		JOptionPane.showMessageDialog(null, carrinhoCompra + "\nValor Total: "+getValorCompra(), "Carrinho", JOptionPane.INFORMATION_MESSAGE, car);
+		
+		
 	}
 	
-	public static void decrementaValorParcial(Produto p) {
-		setValorParcial(getValorParcial() - p.getPreco());
+	public static void decrementaValorTotal(Produto p, int qtd) {
+		setValorCompra(getValorCompra() - (p.getPreco() * qtd));
 	}
 
-	public static void finalizarCompra() {
-		setCompraFinalizada(true);
-		CarrinhoCompra.valorCompra = valorParcial;
-	}
 	
 	public static ArrayList<Produto> getCarrinhoCompra() {
 		return carrinhoCompra;
@@ -72,12 +84,15 @@ public class CarrinhoCompra {
 		CarrinhoCompra.valorCompra = valorCompra;
 	}
 
-	public static boolean isCompraFinalizada() {
-		return compraFinalizada;
+	public static ArrayList<Integer> getQtd() {
+		return qtd;
 	}
 
-	public static void setCompraFinalizada(boolean compraFinalizada) {
-		CarrinhoCompra.compraFinalizada = compraFinalizada;
+	public static void setQtd(ArrayList<Integer> qtd) {
+		CarrinhoCompra.qtd = qtd;
 	}
+
+	
+	
 	
 }

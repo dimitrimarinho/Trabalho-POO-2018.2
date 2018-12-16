@@ -27,21 +27,39 @@ public class Games extends Produto implements AlterarCarrinho {
 	
 	
 	public void adicionarItem(Produto games) {
-		int verif = JOptionPane.DEFAULT_OPTION, dec = games.getUnidadesDisponiveis();
+		int verif = JOptionPane.DEFAULT_OPTION, dec = games.getUnidadesDisponiveis(), quant;
+		String verif2 = "M";
 		if(games.isDisponibilidade() == true) {
 			verif = JOptionPane.showConfirmDialog(null, "Deseja Adicionar o Produto Ao Carrinho?");
 			if(verif == JOptionPane.YES_OPTION) {
-				CarrinhoCompra.adicionarProduto(games);
-				games.setUnidadesDisponiveis(dec - 1);
+				while(verif2.equals("M") ) {
+					try {
+						quant = Integer.parseInt(JOptionPane.showInputDialog("Informe a Quantidade do Produto:"));
+					}catch(NumberFormatException ex) {
+						throw new NumberFormatException("A Quantidade Deve Ser Um Numero Inteiro");
+					}
+					
+					if(quant <= 0) {
+						throw new IllegalArgumentException("A Quantidade Deve Ser Um Numero Inteiro Positivo");
+					}
+					
+					if(quant >= 1 && quant <= dec ) {
+						CarrinhoCompra.adicionarProduto(games,quant);
+						JOptionPane.showMessageDialog(null, "     Produto Adicionado!");
+						games.setUnidadesDisponiveis(dec - quant);
+						if(games.getUnidadesDisponiveis() == 0) {
+							games.setDisponibilidade(false);
+						}
+						verif2 = "OK";
+					}else {
+						JOptionPane.showMessageDialog(null, "     Quantidade Invalida!");
+					}
+				}
 			}
 		}else 
-			JOptionPane.showMessageDialog(null, "Nao ha estoque do produto solicitado");			
+			JOptionPane.showMessageDialog(null, "Nao ha estoque do produto solicitado");				
 	}
-	
-	
-	public boolean removerItem(Produto games) {
-		return CarrinhoCompra.removerProduto(games);
-	}	
+		
 		
 	@Override
 	public String toString(){
@@ -59,8 +77,8 @@ public class Games extends Produto implements AlterarCarrinho {
 		+"\nResolucao: "+getResolucao()
 		+"\nInclui: "+getAdicional()
 		+"\nIdade Recomendada: "+getIdadeRecomendada()
-		+"N° Jogadores Online: "+getNumeroOnline()
-		+"N° Jogadores Offline: "+getNumeroOffline());
+		+"\nN° Jogadores Online: "+getNumeroOnline()
+		+"\nN° Jogadores Offline: "+getNumeroOffline());
 		
 	}
 
