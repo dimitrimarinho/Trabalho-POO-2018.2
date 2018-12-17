@@ -1,0 +1,54 @@
+Camisa:
+
+ID: 1
+Nome: Camisa Marvel
+Descrição: Camisa exclusiva da geekStore em referencia a mais famosa
+Editora de Quadrinhos
+Preço : 10
+Unidades: 5
+Modelo: Rexx
+Material: 100% Algodão
+Cor: Vermelha
+Fornecedor: Apollo LTDA
+Ilustrador: Mike Deodato Jr
+Tamanho: PP
+
+Colecionavel:
+ID: 2
+Nome: FUNKO POP - Spider-Man
+Descrição: Com pequenos Funkos vem grandes responsabilidades! 
+Spider-man Homecoming
+Preco: 20
+Unidades: 10
+Categoria: Super-Herois
+Dimensões: 10
+Conteudo: Boneco do Spider-Man e o Lançador de Teia.
+Material: PVC
+Marca: Funko Toys
+Peso: 2
+
+Botton:
+ID: 3
+Nome: Botton B.T.S
+Descrição: Botton da Banda de K-POP BTS.
+Preco: 5
+Unidades: 20
+Categoria: Banda
+Material: Alumínio
+Dimensões: 5,5 x 5,5
+Franquia: KL Bottons
+Fornecedor: Apollo LTDA
+
+Estojo
+ID: 4
+Nome: Estojo HotWheels
+Descrição: Venha fazer parte dos Acceleracers com esse imponente estojo.
+Preço: 15
+Unidades: 30
+Categoria: Desenho
+Material: Couro
+Dimenssões: 09 x 22
+Numero Compartimentos: 2
+Profundidade: 6
+Cor: Azul
+Marca: Tilibra
